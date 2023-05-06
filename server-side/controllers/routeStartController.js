@@ -3,7 +3,7 @@ const {StatusCodes} = require('http-status-codes');
 const {NotFoundError} = require('../errors');
 
 const getAllRoutes = async (req, res) =>{
-    const routes = await RouteStart.find();
+    const routes = await RouteStart.find({});
 
 res.StatusCodes(StatusCodes.OK).json({routes, count: routes.length});
 };
