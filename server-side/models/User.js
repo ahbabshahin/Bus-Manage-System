@@ -1,0 +1,79 @@
+const mongoose =  require('mongoose');
+const validator = require('validator');
+const mongoooseTypePhone = require('mongoose-type-phone');
+
+const bcrypt = require('bcryptjs');
+
+const UserSchema = new mongoose.Schema(
+    {
+        name:{
+            type: String,
+            required: [true, 'Please provide name'],
+
+            minlength: 4,
+            maxlength: 50
+        },
+
+        email:{
+            type: String,
+            unique: true,
+            required: [true, 'Email field is required'],
+            validate: {
+                validator: validator.isEmail,
+                message: 'Please provide valid email'
+            },
+
+        },
+
+        password:{
+            type: String,
+            required: [true, 'Password field is required'],
+            minlength: 6,
+        },
+
+        contacts:{
+            type: mongoose.SchemaTypes.mongoooseTypePhone,
+            required: [true, 'Please provide your Phone number'],
+        },
+
+        role:{
+            type: String,
+            enum:['student', 'teacher', 'admin ', 'staff'],
+            default: 'student',
+        },
+
+        routeNo:{
+            type: Number,
+            enum:[1,2,3],
+            default: 1,
+        },
+
+        department:{
+            type: String,
+            enum:[
+                'CSE',
+                'BBA',
+                'EEE',
+                'English',
+                'LLB',
+                'ECO',
+                'SE'
+            ],
+            default: 'CSE'
+        },
+
+        studentId:{
+            type: String
+        },
+        batch:{
+            type: Number,
+        },
+        section:{
+            type: String,
+        }
+    },
+
+    {timestamps: true},
+);
+
+module.exports = mongoose.model('User', UserSchema);
