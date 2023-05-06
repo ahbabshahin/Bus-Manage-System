@@ -1,6 +1,7 @@
 const Bus = require('../models/BusInventory');
 const{StatusCodes} = require('http-status-codes');
 const {NotFoundError} = require('../errors');
+
 const getAllBuses = async (req, res) => {
     const bus = await Bus.find();
 
