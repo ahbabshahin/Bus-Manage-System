@@ -1,4 +1,4 @@
-const mongoose =  require('mongoose');
+const mongoose = require('mongoose');
 const validator = require('validator');
 const mongoooseTypePhone = require('mongoose-type-phone');
 
@@ -6,7 +6,7 @@ const bcrypt = require('bcryptjs');
 
 const UserSchema = new mongoose.Schema(
     {
-        name:{
+        name: {
             type: String,
             required: [true, 'Please provide name'],
 
@@ -14,7 +14,7 @@ const UserSchema = new mongoose.Schema(
             maxlength: 50
         },
 
-        email:{
+        email: {
             type: String,
             unique: true,
             required: [true, 'Email field is required'],
@@ -25,32 +25,32 @@ const UserSchema = new mongoose.Schema(
 
         },
 
-        password:{
+        password: {
             type: String,
             required: [true, 'Password field is required'],
             minlength: 6,
         },
 
-        contacts:{
+        contacts: {
             type: mongoose.SchemaTypes.mongoooseTypePhone,
             required: [true, 'Please provide your Phone number'],
         },
 
-        role:{
+        role: {
             type: String,
-            enum:['student', 'teacher', 'admin ', 'staff'],
+            enum: ['student', 'teacher', 'admin ', 'staff'],
             default: 'student',
         },
 
-        routeNo:{
+        routeNo: {
             type: Number,
-            enum:[1,2,3],
+            enum: [1, 2, 3],
             default: 1,
         },
 
-        department:{
+        department: {
             type: String,
-            enum:[
+            enum: [
                 'CSE',
                 'BBA',
                 'EEE',
@@ -62,18 +62,32 @@ const UserSchema = new mongoose.Schema(
             default: 'CSE'
         },
 
-        studentId:{
+        studentId: {
             type: String
         },
-        batch:{
+        batch: {
             type: Number,
         },
-        section:{
+        section: {
             type: String,
         }
     },
 
-    {timestamps: true},
+    { timestamps: true },
 );
+
+
+UserSchema.pre('save', async function () {
+    if (!this.isModified('password'))
+        return;
+
+    const salt = await bcrypt.genSalt(10);
+    this.password = await bcrypt.hash(this.password, salt);
+});
+
+UserSchema.methods.comparePassword = async function (candidatePassword) {
+    const isMatch = await bcrypt.compare(candidatePassword, this.password);
+    return isMatch;
+}
 
 module.exports = mongoose.model('User', UserSchema);

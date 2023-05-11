@@ -1,6 +1,6 @@
-const mongose = require('mongoose');
+const mongoose = require('mongoose');
 
-const RouteStartSchema = new mongoose.RouteStartSchema(
+const RouteStartSchema = new mongoose.Schema(
     {
         routeNo:{
             type: Number,
@@ -36,4 +36,4 @@ const RouteStartSchema = new mongoose.RouteStartSchema(
     
 );
 
-modeule.exports = mongoose.model('RouterStart', RouteStartSchema);
+module.exports = mongoose.model('RouteStart', RouteStartSchema);
