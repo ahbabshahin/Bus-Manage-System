@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 
 const InvestorySchema = new mongoose.Schema({
-    licenseNumber:{
-        type:String,
+    busNo:{
+        type:Number,
         required: [true, 'must be given'],
     },
     codeName: {

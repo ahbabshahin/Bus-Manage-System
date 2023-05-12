@@ -38,7 +38,7 @@ const UserSchema = new mongoose.Schema(
 
         role: {
             type: String,
-            enum: ['student', 'teacher', 'admin ', 'staff'],
+            enum: ['student', 'teacher', 'admin ', 'staff', 'driver'],
             default: 'student',
         },
 
@@ -63,7 +63,8 @@ const UserSchema = new mongoose.Schema(
         },
 
         studentId: {
-            type: String
+            type: String,
+            unique: true,
         },
         batch: {
             type: Number,
