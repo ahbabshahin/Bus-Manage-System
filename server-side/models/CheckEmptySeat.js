@@ -19,9 +19,23 @@ const CheckEmptySeatSchema = new mongoose.Schema({
         require: true
     },
 
+    role: {
+        type: String,
+        enum: ['student', 'teacher', 'admin', 'staff', 'driver'],
+        default: 'student',
+    },
+
     status:{
         type: Boolean,
         default: false
+    },
+
+    seat:{
+        type: Number
+    },
+
+    request:{
+        type: Number,
     }
 
 },

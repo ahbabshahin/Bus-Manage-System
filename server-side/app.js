@@ -22,6 +22,9 @@ const userRouter = require('./routes/userRoutes');
 const routeStartRouter = require('./routes/routeStartRouter');
 const routeStoppagesRouter = require('./routes/routeStoppagesRouter');
 const timeSlotRouter = require('./routes/timeSlotRoutes');
+const checkEmptySeatRouter = require('./routes/checkEmptySeatRoutes');
+
+
 
 app.use(morgan('tiny'));
 app.use(express.json());
@@ -43,6 +46,8 @@ app.use('/api/v1/routeStart', routeStartRouter);
 app.use('/api/v1/stoppage', routeStoppagesRouter);
 app.use('/api/v1/bus', busRouter);
 app.use('/api/v1/timeSlots', timeSlotRouter);
+app.use('/api/v1/checkEmptySeat', checkEmptySeatRouter);
+
 
 // middleware use
 app.use(notFoundMiddleware);

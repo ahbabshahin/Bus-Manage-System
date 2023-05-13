@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 
 const InvestorySchema = new mongoose.Schema({
-    busNo:{
-        type:Number,
+    busNo: {
+        type: Number,
         required: [true, 'must be given'],
     },
     codeName: {
@@ -10,25 +10,28 @@ const InvestorySchema = new mongoose.Schema({
         // unique: true,
         required: true,
     },
-    capacity:{
+    capacity: {
         type: Number,
-        required:true,
+        required: true,
     },
 
-    driverInfo :{
-        name:{
+    driverInfo: {
+        name: {
             type: String,
-            required:[true, 'must provide full name'],
+            required: [true, 'must provide full name'],
         },
-        contactNumber:{
+        contactNumber: {
             type: Number,
-            required:true,
+            required: true,
         },
     },
-    isActive:{
+    seatNo: {
+        type: Number,
+    },
+    isActive: {
         type: Boolean,
         default: false,
     }
 });
 
-module.exports = mongoose.model('Inventory',InvestorySchema);
+module.exports = mongoose.model('Inventory', InvestorySchema);
