@@ -32,7 +32,7 @@ const UserSchema = new mongoose.Schema(
         },
 
         contacts: {
-            type: mongoose.SchemaTypes.mongoooseTypePhone,
+            type: mongoooseTypePhone,
             required: [true, 'Please provide your Phone number'],
         },
 

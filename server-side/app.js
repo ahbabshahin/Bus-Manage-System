@@ -25,7 +25,7 @@ const timeSlotRouter = require('./routes/timeSlotRoutes');
 
 app.use(morgan('tiny'));
 app.use(express.json());
-app.use(cookieParser(process.env.JWT_SECRET));
+// app.use(cookieParser(process.env.JWT_SECRET));
 app.use(cors());
 
 app.get('/', (req, res) =>{
@@ -37,18 +37,18 @@ app.get('/api/v1', (req, res) =>{
   res.send('test-api');
 })
 
-app.use('/api/v1/auth', authRouter);
-app.use('/api/v1/users', userRouter);
+// app.use('/api/v1/auth', authRouter);
+// app.use('/api/v1/users', userRouter);
 app.use('/api/v1/routeStart', routeStartRouter);
-app.use('/api/v1/stoppage', routeStoppagesRouter);
+// app.use('/api/v1/stoppage', routeStoppagesRouter);
 app.use('/api/v1/bus', busRouter);
-app.use('/api/v1/timeSlots', timeSlotRouter);
+// app.use('/api/v1/timeSlots', timeSlotRouter);
 
 // middleware use
 app.use(notFoundMiddleware);
 app.use(errorHandlerMiddleware);
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 5000;
 
 const start = async () => {
   try {
