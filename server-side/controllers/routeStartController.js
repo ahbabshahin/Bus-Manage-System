@@ -5,7 +5,7 @@ const {NotFoundError} = require('../errors');
 const getAllRoutes = async (req, res) =>{
     const routes = await RouteStart.find({});
 
-res.StatusCodes(StatusCodes.OK).json({routes, count: routes.length});
+res.status(StatusCodes.OK).json({routes, count: routes.length});
 };
 
 const getSingleRoute = async (req, res) =>{
@@ -16,7 +16,7 @@ const getSingleRoute = async (req, res) =>{
     if(!route){
         throw new NotFoundError(`No route wit id ${id}`);
     };
-    res.StatusCodes(StatusCodes.OK).json({route});
+    res.status(StatusCodes.OK).json({route});
 
 };
 

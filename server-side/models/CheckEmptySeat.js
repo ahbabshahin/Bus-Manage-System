@@ -25,18 +25,13 @@ const CheckEmptySeatSchema = new mongoose.Schema({
         default: 'student',
     },
 
-    status:{
-        type: Boolean,
-        default: false
-    },
+    // seat:{
+    //     type: Number
+    // },
 
-    seat:{
-        type: Number
-    },
-
-    request:{
-        type: Number,
-    }
+    // request:{
+    //     type: Number,
+    // }
 
 },
 

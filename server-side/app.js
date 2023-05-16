@@ -23,7 +23,7 @@ const routeStartRouter = require('./routes/routeStartRouter');
 const routeStoppagesRouter = require('./routes/routeStoppagesRouter');
 const timeSlotRouter = require('./routes/timeSlotRoutes');
 const checkEmptySeatRouter = require('./routes/checkEmptySeatRoutes');
-
+const iAmInRouter = require('./routes/iAmInRoute');
 
 
 app.use(morgan('tiny'));
@@ -47,13 +47,13 @@ app.use('/api/v1/stoppage', routeStoppagesRouter);
 app.use('/api/v1/bus', busRouter);
 app.use('/api/v1/timeSlots', timeSlotRouter);
 app.use('/api/v1/checkEmptySeat', checkEmptySeatRouter);
-
+app.use('/api/v1/iAmIn', iAmInRouter);
 
 // middleware use
 app.use(notFoundMiddleware);
 app.use(errorHandlerMiddleware);
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 5000;
 
 const start = async () => {
   try {

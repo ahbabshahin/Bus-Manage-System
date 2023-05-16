@@ -5,7 +5,7 @@ const {NotFoundError} = require('../errors');
 const getRouteStoppages = async (req, res) =>{
     const stoppages = await RouteStoppages.find({});
 
-    res.StatusCodes(StatusCodes.OK).json({stoppages, count: stoppages.length}); 
+    res.status(StatusCodes.OK).json({stoppages, count: stoppages.length}); 
 };
 
 const getSingleStoppages = async (req, res) =>{

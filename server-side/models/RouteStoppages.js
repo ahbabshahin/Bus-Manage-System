@@ -12,16 +12,6 @@ const RouteStoppagesSchema = new mongoose.Schema({
         type: String,
         required: [true, 'Please provide the starting location'],
     },
-
-    // latitude: {
-    //     type: String,
-    //     required: [true, 'Please provide the latitude'],
-    // },
-
-    // longtitude:{
-    //     tupe: String,
-    //     required: [true, 'Please provide the longtitude'],
-    // },
 },
     {timestamps: true},
 );
