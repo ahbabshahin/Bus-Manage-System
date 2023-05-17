@@ -1,11 +1,13 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
-import AdminLogin from './Pages/LoginPage/AdminLogin/AdminLogin';
+import AdminBusInventory from './Pages/Dashboard/AdminDashboard/AdminBusInventory/AdminBusInventory';
+//import AdminLogin from './Pages/LoginPage/AdminLogin/AdminLogin';
 function App() {
   return (
     <div className='App'>
       <Routes>
-      <Route path='adminlogin' element={<AdminLogin />} />
+      <Route path='inventory' element={<AdminBusInventory />} />
+      {/* <Route path='adminlogin' element={<AdminLogin />} /> */}
       </Routes>
 
     </div>
