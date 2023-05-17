@@ -2,6 +2,7 @@ import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import AdminBusInventory from './Pages/Dashboard/AdminDashboard/AdminBusInventory/AdminBusInventory';
 import AdminBusInventoryAdd from './Pages/Dashboard/AdminDashboard/AdminBusInventoryAdd/AdminBusInventoryAdd';
+import AdminBusInventoryUpdate from './Pages/Dashboard/AdminDashboard/AdminBusInventoryUpdate/AdminBusInventoryUpdate';
 //import AdminLogin from './Pages/LoginPage/AdminLogin/AdminLogin';
 
 
@@ -17,6 +18,10 @@ function App() {
         <Route path='dashboard/*' element={<DashboardHome />}>
           <Route path='addBus' element={<AdminBusInventoryAdd />} />
         </Route>
+        <Route
+						path='busUpdate/:busId'
+						element={<AdminBusInventoryUpdate />}
+					/>
         {/* <Route path='adminlogin' element={<AdminLogin />} /> */}
       </Routes>
 
