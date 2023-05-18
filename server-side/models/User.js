@@ -47,7 +47,11 @@ const UserSchema = new mongoose.Schema(
             enum: [1, 2, 3],
             default: 1,
         },
-
+        timeSlot: {
+			type: String,
+			// required: true
+		},
+        
         department: {
             type: String,
             enum: [
