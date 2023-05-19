@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 import useAuthentication from '../../../hooks/useAuthentication';
 import userLogin from '../../../Images/user-login.png';
+
 const initialInputs = [
 	{
 		inputType: 'Full Name',
@@ -93,6 +94,7 @@ const ConsumerRegister = () => {
                                 </small> */}
 
 						{/* student role */}
+						<div className='ml-80'>
 						<div className='flex space-x-4 items-center my-3'>
 							<div
 								className={`px-5 py-3 rounded text-dark hover:bg-gray-400 capitalize shadow ${
@@ -124,6 +126,7 @@ const ConsumerRegister = () => {
 							>
 								staff
 							</div>
+						</div>
 						</div>
 
 						<div className='py-2 '>
