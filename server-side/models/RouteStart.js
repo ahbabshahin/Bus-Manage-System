@@ -1,39 +1,37 @@
 const mongoose = require('mongoose');
 
 const RouteStartSchema = new mongoose.Schema(
-    {
-        routeNo:{
-            type: Number,
-            enum:[1,2,3],
-            default: 1
-        },
+	{
+		routeNo: {
+			type: String,
+			enum: ['Chottor', 'Kazir Bazar', 'Temuki'],
+			default: 'Chottor',
+		},
 
-        startLocation:{
-            label: {
-                type: String,
-                required: [true, 'Please provide the starting location'],
-            },
+		startLocation: {
+			label: {
+				type: String,
+				required: [true, 'Please provide the starting location'],
+			},
 
-            // latitude:{
-            //     type: String,
-            //     required: [true, 'Please provide the latitude'],
-            // },
+			// latitude:{
+			//     type: String,
+			//     required: [true, 'Please provide the latitude'],
+			// },
 
-            // longtitude:{
-            //     type: String,
-            //     required: [true, 'Please provide the longtitude'],
-            // },
+			// longtitude:{
+			//     type: String,
+			//     required: [true, 'Please provide the longtitude'],
+			// },
 
-            startTime: {
-                type: String,
-                required: [true, 'Please provide the starting time'],
-            },
+			startTime: {
+				type: String,
+				required: [true, 'Please provide the starting time'],
+			},
+		},
+	},
 
-        },
-    },
-
-        {timestamps: true},
-    
+	{ timestamps: true }
 );
 
 module.exports = mongoose.model('RouteStart', RouteStartSchema);

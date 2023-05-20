@@ -1,5 +1,5 @@
 require('dotenv').config();
-const bodyParser = require('body-parser');
+
 require('express-async-errors');
 const express = require('express');
 const app = express();
@@ -25,18 +25,12 @@ const routeStoppagesRouter = require('./routes/routeStoppagesRouter');
 const timeSlotRouter = require('./routes/timeSlotRoutes');
 const checkEmptySeatRouter = require('./routes/checkEmptySeatRoutes');
 const iAmInRouter = require('./routes/iAmInRoute');
-const estimateRouter = require('./routes/estimateNumberOfPassengerRoute');
+// const estimateRouter = require('./routes/estimateNumberOfPassengerRoute');
 
 app.use(morgan('tiny'));
 app.use(express.json());
 app.use(cookieParser(process.env.JWT_SECRET));
 app.use(cors());
-// app.use(
-// 	bodyParser.urlencoded({
-// 		extended: false,
-// 	})
-// );
-// app.use(bodyParser.json());
 
 app.get('/', (req, res) => {
 	res.send('test-api');
@@ -55,7 +49,7 @@ app.use('/api/v1/bus', busRouter);
 app.use('/api/v1/timeSlots', timeSlotRouter);
 app.use('/api/v1/checkEmptySeat', checkEmptySeatRouter);
 app.use('/api/v1/iAmIn', iAmInRouter);
-app.use('/api/v1/estimate', estimateRouter);
+// app.use('/api/v1/estimate', estimateRouter);
 
 // middleware use
 app.use(notFoundMiddleware);
