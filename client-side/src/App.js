@@ -42,9 +42,9 @@ function App() {
 					path='consumerBusInfo'
 					element={<ConsumerBusDetails />}
 				/>
-				<Route path='inventory' element={<AdminBusInventory />} />
 
 				<Route path='dashboard/*' element={<DashboardHome />}>
+					<Route path='inventory' element={<AdminBusInventory />} />
 					{/* <Route index element={<ConsumerDashboardHome />} /> */}
 					{/* <Route
 						path='profile'

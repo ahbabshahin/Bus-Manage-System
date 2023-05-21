@@ -43,23 +43,24 @@ const AdminBusRoute = () => {
 				{/* Existing Bus Update list */}
 				<div className='grid grid-cols-3 gap-3'>
 					{routeList &&
-						routeList.map(
-							({ _id, routeNo, startLocation, startTime }) => (
-								<div
-									key={_id}
-									className='border-2 border-gray-200 hover:border-dark   rounded-xl'
-								>
-									<div className='text-lg font-semibold  text-center py-4'>
-										<p>Route Number : {routeNo}</p>
-										<p>start Time: {startTime}</p>
-									</div>
-									<div className='border border-light shadow-sm h-0 bg-light mb-5'></div>
-									<div className='text-base font-medium text-center'>
-										<p className='text-base '>
+						routeList.map(({ _id, routeNo, startLocation }) => (
+							<div
+								key={_id}
+								className='border-2 border-gray-200 hover:border-dark   rounded-xl'
+							>
+								<div className='text-lg font-semibold  text-center py-4'>
+									<p>Route : {routeNo}</p>
+									<p>
+										start Time: {startLocation?.startTime}
+									</p>
+								</div>
+								<div className='border border-light shadow-sm h-0 bg-light mb-5'></div>
+								<div className='text-base font-medium text-center'>
+									{/* <p className='text-base '>
 											Start Location Label :{' '}
 											{startLocation?.label}
-										</p>
-										<p className='flex flex-col justify-center items-center'>
+										</p> */}
+									{/* <p className='flex flex-col justify-center items-center'>
 											<span>
 												Latitude{' '}
 												{startLocation.latitude}
@@ -69,23 +70,22 @@ const AdminBusRoute = () => {
 												Longitude{' '}
 												{startLocation.longitude}
 											</span>
-										</p>
-										<div className='text-center mx-auto'>
-											<button
-												onClick={() =>
-													navigate(
-														`/dashboard/routeUpdate/${_id}`
-													)
-												}
-												className='block mx-auto w-full mt-5 py-2 border bg-secondary  rounded-lg hover:bg-dark hover:text-white'
-											>
-												Edit
-											</button>
-										</div>
+										</p> */}
+									<div className='text-center mx-auto'>
+										<button
+											onClick={() =>
+												navigate(
+													`/dashboard/routeUpdate/${_id}`
+												)
+											}
+											className='block mx-auto w-full mt-5 py-2 border bg-secondary  rounded-lg hover:bg-dark hover:text-white'
+										>
+											Edit
+										</button>
 									</div>
 								</div>
-							)
-						)}
+							</div>
+						))}
 				</div>
 			</article>
 		</div>

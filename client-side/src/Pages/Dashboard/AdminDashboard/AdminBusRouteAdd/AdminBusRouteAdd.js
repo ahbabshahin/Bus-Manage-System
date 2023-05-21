@@ -5,25 +5,26 @@ import { useNavigate } from 'react-router-dom';
 
 const inputs = [
 	{
-		inputType: 'number',
-		inputTitle: 'Route Number',
+		inputType: 'text',
+		inputTitle: 'Route',
 		inputData: 'routeNo',
+		// inputEnum: ['Chottor', 'Kazir Bazar', 'Temuki'],
 	},
-	{
-		inputType: 'text',
-		inputTitle: 'label',
-		inputData: 'label',
-	},
-	{
-		inputType: 'text',
-		inputTitle: 'Latitude',
-		inputData: 'latitude',
-	},
-	{
-		inputType: 'text',
-		inputTitle: 'Longitude',
-		inputData: 'longitude',
-	},
+	// {
+	// 	inputType: 'text',
+	// 	inputTitle: 'label',
+	// 	inputData: 'label',
+	// },
+	// {
+	// 	inputType: 'text',
+	// 	inputTitle: 'Latitude',
+	// 	inputData: 'latitude',
+	// },
+	// {
+	// 	inputType: 'text',
+	// 	inputTitle: 'Longitude', latitude, longitude
+	// 	inputData: 'longitude',
+	// },
 	{
 		inputType: 'text',
 		inputTitle: 'Start Time',
@@ -36,18 +37,17 @@ const AdminBusRouteAdd = () => {
 	const navigate = useNavigate();
 
 	const onSubmit = async (data) => {
-		const {licenseNo, startTime, label, latitude, longitude} = data;
+		const { routeNo, startTime } = data;
 		console.log(data);
 
 		try {
 			const res = await axios.post('/routeStart/create', {
-				licenseNo,
-				startTime,
-				startLocation: { label, latitude, longitude },
+				routeNo,
+				startLocation: { startTime },
 			});
 			navigate('/dashboard/routes');
 		} catch (error) {
-			console.log(error)
+			console.log(error);
 		}
 
 		reset();

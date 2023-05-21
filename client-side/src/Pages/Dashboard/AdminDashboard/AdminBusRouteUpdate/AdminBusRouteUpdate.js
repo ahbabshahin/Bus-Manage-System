@@ -4,69 +4,68 @@ import { useForm } from 'react-hook-form';
 import { useNavigate, useParams } from 'react-router-dom';
 
 const AdminBusRouteUpdate = () => {
-	const { routeId:id } = useParams();
+	const { routeId: id } = useParams();
 	const { register, handleSubmit, reset } = useForm();
-	const [ route, setRoute ] = useState();
+	const [route, setRoute] = useState();
 	const navigate = useNavigate();
-	
+
 	useEffect(() => {
 		axios
-		.get(`/routeStart/get/${id}`)
-		.then((res) => {
-			setRoute(res.data.route);
-			console.log(res.data.route);
-		})
-		.catch((err) => {
-			console.log(err);
-		});
+			.get(`/routeStart/get/${id}`)
+			.then((res) => {
+				setRoute(res.data.route);
+				console.log(res.data.route);
+			})
+			.catch((err) => {
+				console.log(err);
+			});
 	}, []);
-	
+
 	const inputs = [
 		{
-			inputType: 'number',
+			inputType: 'text',
 			inputTitle: 'Route Number',
 			inputData: 'routeNo',
 			value: route?.routeNo,
 		},
-		{
-			inputType: 'text',
-			inputTitle: 'label',
-			inputData: 'label',
-			value: route?.startLocation.label,
-		},
-		{
-			inputType: 'text',
-			inputTitle: 'Latitude ',
-			inputData: 'latitude',
-			value: route?.startLocation.latitude,
-		},
-		{
-			inputType: 'text',
-			inputTitle: 'Longitude',
-			inputData: 'longitude',
-			value: route?.startLocation.longitude,
-		},
+		// {
+		// 	inputType: 'text',
+		// 	inputTitle: 'label',
+		// 	inputData: 'label',
+		// 	value: route?.startLocation.label,
+		// },
+		// {
+		// 	inputType: 'text',
+		// 	inputTitle: 'Latitude ',
+		// 	inputData: 'latitude',
+		// 	value: route?.startLocation.latitude,
+		// },
+		// {
+		// 	inputType: 'text',
+		// 	inputTitle: 'Longitude',
+		// 	inputData: 'longitude',
+		// 	value: route?.startLocation.longitude,
+		// },
 		{
 			inputType: 'text',
 			inputTitle: 'Start Time',
 			inputData: 'startTime',
-			value: route?.startTime,
+			value: route?.startLocation.startTime,
 		},
 	];
 	const onSubmit = async (data) => {
 		/* 	console.log(data); */
-		const {licenseNo, startTime, label, latitude, longitude} = data;
+		const { routeNo, startTime } = data;
 		console.log(data);
 
 		try {
 			const res = await axios.post('/routeStart/create', {
-				licenseNo,
-				startTime,
-				startLocation: { label, latitude, longitude },
+				routeNo,
+				startLocation: { startTime },
 			});
 			navigate('/dashboard/routes');
 		} catch (error) {
-			console.log(error)
+			console.log(error);
 		}
 
 		reset();
@@ -113,8 +112,7 @@ const AdminBusRouteUpdate = () => {
 										name={inputTitle}
 										defaultValue={value}
 										placeholder={inputTitle}
-										{...register(`${inputData}`, {
-										})}
+										{...register(`${inputData}`, {})}
 									/>
 								</div>
 							</div>

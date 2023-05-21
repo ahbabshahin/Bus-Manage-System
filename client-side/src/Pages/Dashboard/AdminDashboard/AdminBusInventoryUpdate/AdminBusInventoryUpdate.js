@@ -5,7 +5,7 @@ import { Navigate, useNavigate, useParams } from 'react-router-dom';
 
 const AdminBusInventoryUpdate = () => {
 	const [bus, setBus] = useState();
-	const { busId : id } = useParams();
+	const { busId: id } = useParams();
 	const navigate = useNavigate();
 	const isActiveRef = useRef(false);
 
@@ -24,13 +24,19 @@ const AdminBusInventoryUpdate = () => {
 	const { register, handleSubmit, reset } = useForm();
 	const onSubmit = async (data) => {
 		console.log(data);
-			const { licenseNo, codeName, capacity, name, contacts } = data;
+		const { routeNo, busNo, capacity, name, contactNumber } = data;
 
 		try {
-			const res = await axios.post('/bus/update/:id', {licenseNo, codeName, capacity, driverInfo: {name, contacts},  isActive: isActiveRef.current.checked});
+			const res = await axios.post('/bus/update/:id', {
+				routeNo,
+				busNo,
+				capacity,
+				driverInfo: { name, contactNumber },
+				isActive: isActiveRef.current.checked,
+			});
 			navigate('/dashboard/inventory');
 		} catch (error) {
-			console.log(error)
+			console.log(error);
 		}
 
 		reset();
@@ -39,17 +45,17 @@ const AdminBusInventoryUpdate = () => {
 	const inputs = [
 		{
 			id: 1,
-			inputType: 'number',
-			inputTitle: 'License Number',
-			inputData: 'licenseNo',
-			value: bus?.licenseNo,
+			inputType: 'text',
+			inputTitle: 'Route',
+			inputData: 'routeNo',
+			value: bus?.routeNo,
 		},
 		{
 			id: 2,
-			inputType: 'number',
-			inputTitle: 'Codename',
-			inputData: 'codeName',
-			value: bus?.codeName,
+			inputType: 'text',
+			inputTitle: 'Bus No',
+			inputData: 'busNo',
+			value: bus?.busNo,
 		},
 		{
 			id: 3,
@@ -70,8 +76,8 @@ const AdminBusInventoryUpdate = () => {
 			id: 5,
 			inputType: 'text',
 			inputTitle: 'Driver Contact Number',
-			inputData: 'contacts',
-			value: bus?.driverInfo.contacts,
+			inputData: 'contactNumber',
+			value: bus?.driverInfo.contactNumber,
 		},
 	];
 	return (
@@ -115,8 +121,7 @@ const AdminBusInventoryUpdate = () => {
 										name={inputTitle}
 										defaultValue={value}
 										placeholder={inputTitle}
-										{...register(`${inputData}`, {
-										})}
+										{...register(`${inputData}`, {})}
 									/>
 								</div>
 							</div>

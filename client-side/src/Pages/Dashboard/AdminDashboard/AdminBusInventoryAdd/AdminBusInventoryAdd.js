@@ -3,53 +3,56 @@ import React, { useRef } from 'react';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 
-const inputs=[
-    {
-        inputType: 'number',
-        inputTitle: 'Bus Number',
-        inputData:'busNo',
-    },
-    {
-        inputType:'text',
-        inputTitle:'Codename',
-        inputData:'codeName',
-    },
-    {
-        inputType:'text',
-        inputTitle:'Capacity',
-        inputData:'capacity',
-    },
-    {
-        inputType:'text',
-        inputTitle:'Driver Name',
-        inputData:'name',
-    },
-    {
-        inputType:'text',
-        inputTitle:'Driver Contact Number',
-        inputData:'contacts'
-
-    },
-
+const inputs = [
+	{
+		inputType: 'text',
+		inputTitle: 'Bus Number',
+		inputData: 'busNo',
+	},
+	{
+		inputType: 'text',
+		inputTitle: 'Route',
+		inputData: 'routeNo',
+	},
+	{
+		inputType: 'number',
+		inputTitle: 'Capacity',
+		inputData: 'capacity',
+	},
+	{
+		inputType: 'text',
+		inputTitle: 'Driver Name',
+		inputData: 'name',
+	},
+	{
+		inputType: 'number',
+		inputTitle: 'Driver Contact Number',
+		inputData: 'contactNumber',
+	},
 ];
 
-const AdminBusInventoryAdd = () =>{
-    const {register,handleSubmit,reset}=useForm();
-    const isActiveRef=useRef(false);
-    const navigate=useNavigate();
+const AdminBusInventoryAdd = () => {
+	const { register, handleSubmit, reset } = useForm();
+	const isActiveRef = useRef(false);
+	const navigate = useNavigate();
 
-    const onSubmit =async(data)=>{
-        const {licenseNo, codeName, capacity, name, contacts} = data;
-        try{
-            const res=await axios.post('/bus/create',{licenseNo,codeName,capacity,driverInfo:{name,contacts},
-        isActive:isActiveRef.current.checked});
-        navigate('/dashboard/inventory');
-        }catch(error){
-            console.log(error)
-        }
-        reset();
-    };
-    return (
+	const onSubmit = async (data) => {
+		const { routeNo, busNo, capacity, name, contactNumber } = data;
+		try {
+			const res = await axios.post('/bus/create', {
+				routeNo,
+				busNo,
+				capacity,
+				driverInfo: { name, contactNumber },
+				isActive: isActiveRef.current.checked,
+			});
+			navigate('/dashboard/inventory');
+		} catch (error) {
+			console.log(error);
+		}
+		reset();
+	};
+	return (
 		<section className='justify-center mt-20'>
 			{/* input forms */}
 
@@ -109,6 +112,5 @@ const AdminBusInventoryAdd = () =>{
 			</div>
 		</section>
 	);
-
 };
 export default AdminBusInventoryAdd;
