@@ -1,4 +1,5 @@
 require('dotenv').config();
+
 require('express-async-errors');
 const express = require('express');
 const app = express();
@@ -24,6 +25,7 @@ const routeStoppagesRouter = require('./routes/routeStoppagesRouter');
 const timeSlotRouter = require('./routes/timeSlotRoutes');
 const checkEmptySeatRouter = require('./routes/checkEmptySeatRoutes');
 const iAmInRouter = require('./routes/iAmInRoute');
+const busRoutineRouter = require('./routes/busRoutineRoutes');
 // const estimateRouter = require('./routes/estimateNumberOfPassengerRoute');
 
 app.use(morgan('tiny'));
@@ -48,6 +50,7 @@ app.use('/api/v1/bus', busRouter);
 app.use('/api/v1/timeSlots', timeSlotRouter);
 app.use('/api/v1/checkEmptySeat', checkEmptySeatRouter);
 app.use('/api/v1/iAmIn', iAmInRouter);
+app.use('/api/v1/busRoutine', busRoutineRouter);
 // app.use('/api/v1/estimate', estimateRouter);
 
 // middleware use

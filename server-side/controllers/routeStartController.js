@@ -1,73 +1,99 @@
 const RouteStart = require('../models/RouteStart');
-const {StatusCodes} = require('http-status-codes');
-const {NotFoundError} = require('../errors');
+const { StatusCodes } = require('http-status-codes');
+const { NotFoundError } = require('../errors');
 
-const getAllRoutes = async (req, res) =>{
-    const routes = await RouteStart.find({});
+const getAllRoutes = async (req, res) => {
+	const routes = await RouteStart.find({});
 
-res.StatusCodes(StatusCodes.OK).json({routes, count: routes.length});
+	res.status(StatusCodes.OK).json({ routes, count: routes.length });
 };
 
-const getSingleRoute = async (req, res) =>{
-    const {id} = req.params;
+const getSingleRoute = async (req, res) => {
+	const { id } = req.params;
 
-    const route = await RouteStart.findById(id);
+	const route = await RouteStart.findById(id);
 
-    if(!route){
-        throw new NotFoundError(`No route wit id ${id}`);
-    };
-    res.StatusCodes(StatusCodes.OK).json({route});
-
+	if (!route) {
+		throw new NotFoundError(`No route wit id ${id}`);
+	}
+	res.status(StatusCodes.OK).json({ route });
 };
 
-const updateRoute = async (req, res) =>{
-    const {
-        body:{
-            routeNo,
-            startTime, 
-            startLocation:{label}
-        },
+const updateRoute = async (req, res) => {
+	const {
+		body: {
+			routeNo,
+			startTime,
+			startLocation: { label },
+		},
 
-        params : {id: routeId},
+		params: { id: routeId },
+	} = req;
 
-    } = req;
+	const routeStart = await RouteStart.findByIdAndUpdate(routeId, req.body, {
+		new: true,
+		runValidators: true,
+	});
 
-    const routeStart = await RouteStart.findByIdAndUpdate(routeId, req.body, {
-        new: true,
-        runValidators:true,
-    });
+	if (!routeStart) {
+		throw new NotFoundError(`No route with id ${routeId}`);
+	}
 
-    if(!routeStart){
-        throw new NotFoundError(`No route with id ${routeId}`);
-    }
-
-    res.status(StatusCodes.OK).json({routeStart});
+	res.status(StatusCodes.OK).json({ routeStart });
 };
 
-const createRoute = async (req, res) =>{
-    const routeStart = await RouteStart.create(req.body);
+const createRoute = async (req, res) => {
+	const routeStart = await RouteStart.create(req.body);
 
-    res.status(StatusCodes.OK).json({routeStart});
+	res.status(StatusCodes.OK).json({ routeStart });
 };
 
-const deleteRoute = async (req, res) =>{
-    const {
-        params:{id: routeId},
-    } = req;
+const deleteRoute = async (req, res) => {
+	const {
+		params: { id: routeId },
+	} = req;
 
-    const route = await RouteStart.findByIdAndRemove({_id: routeId});
+	const route = await RouteStart.findByIdAndRemove({ _id: routeId });
 
-    if(!route){
-        throw new NotFoundError(`No route with id ${routeId}`);
-    }
+	if (!route) {
+		throw new NotFoundError(`No route with id ${routeId}`);
+	}
 
-    res.status(StatusCodes.OK).send({msg:'successfully deleted'})
+	res.status(StatusCodes.OK).send({ msg: 'successfully deleted' });
+};
+
+const deleteAllRoutes = async (req, res) => {
+	const routeIds = await RouteStart.find({}, { _id: 1 });
+	const check = await RouteStart.find({}, { _id: 1 }).countDocuments();
+
+	console.log(routeIds);
+	console.log(check);
+
+	let deleteRoutes;
+	if (check) {
+		for (let i = 0; i < check; i++) {
+			deleteRoutes = await RouteStart.findOneAndDelete({ _id: routeIds });
+		}
+	}
+
+	if (!check) {
+		res.status(StatusCodes.OK).json({
+			msg: `No route information is available`,
+		});
+	}
+
+	res.status(StatusCodes.OK).json({
+		msg: `Route informations are deleted successfully`,
+	});
+
+	// res.status(StatusCodes.OK).send('Hey');
 };
 
 module.exports = {
-    createRoute,
-    updateRoute,
-    getAllRoutes,
-    getSingleRoute,
-    deleteRoute
+	createRoute,
+	updateRoute,
+	getAllRoutes,
+	getSingleRoute,
+	deleteRoute,
+	deleteAllRoutes,
 };
