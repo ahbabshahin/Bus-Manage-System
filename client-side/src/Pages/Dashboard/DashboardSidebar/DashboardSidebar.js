@@ -26,7 +26,7 @@ const consumerLinks = [
 
 const adminLinks = [
 	{
-		to: '/dashboard',
+		to: '/dashboard/admindashboard',
 		text: 'Dashboard',
 		icon: <AiOutlineHome />,
 	},

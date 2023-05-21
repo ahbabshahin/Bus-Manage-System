@@ -11,7 +11,7 @@ import AdminBusStoppageAdd from './Pages/Dashboard/AdminDashboard/AdminBusStoppa
 import AdminBusStoppageUpdate from './Pages/Dashboard/AdminDashboard/AdminBusStoppageUpdate/AdminBusStoppageUpdate';
 
 // import ConsumerDashboardHome from './Pages/Dashboard/ConsumerDashboard/ConsumerDashboardHome/ConsumerDashboardHome';
-// import ConsumerDashboardProfile from './Pages/Dashboard/ConsumerDashboard/ConsumerDashboardProfile/ConsumerDashboardProfile';
+import ConsumerDashboardProfile from './Pages/Dashboard/ConsumerDashboard/ConsumerDashboardProfile/ConsumerDashboardProfile';
 
 import AdminLogin from './Pages/LoginPage/AdminLogin/AdminLogin';
 import AdminRegister from './Pages/LoginPage/AdminRegister/AdminRegister';
@@ -19,11 +19,11 @@ import ConsumerBusDetails from './Pages/LoginPage/ConsumerBusDetails/ConsumerBus
 import ConsumerRegister from './Pages/LoginPage/ConsumerRegister/ConsumerRegister';
 import ConsumerLogin from './Pages/LoginPage/ConsumerLogin/ConsumerLogin';
 // import ConsumeRequestSeat from './Pages/Dashboard/ConsumerDashboard/ConsumerRequestSeat/ConsumeRequestSeat';
-//import AdminLogin from './Pages/LoginPage/AdminLogin/AdminLogin';
 
 import NotFound from './Pages/NotFoundPage/NotFound/NotFound';
 
 import DashboardHome from './Pages/Dashboard/DashboardHome/DashboardHome';
+import AdminDashboardHome from './Pages/Dashboard/AdminDashboard/AdminDashboardHome/AdminDashboardHome';
 
 import Home from './Pages/HomePage/Home/Home';
 
@@ -32,7 +32,7 @@ function App() {
 		<div className='App'>
 			<Routes>
 				<Route path='/' element={<Home />}></Route>
-				<Route path='home' element={<Home />} />
+				{/* <Route path='home' element={<Home />} /> */}
 				<Route path='adminlogin' element={<AdminLogin />} />
 				<Route path='adminRegister' element={<AdminRegister />} />
 				<Route path='consumerRegister' element={<ConsumerRegister />} />
@@ -45,11 +45,18 @@ function App() {
 
 				<Route path='dashboard/*' element={<DashboardHome />}>
 					<Route path='inventory' element={<AdminBusInventory />} />
-					{/* <Route index element={<ConsumerDashboardHome />} /> */}
+					<Route
+						path='admindashboard'
+						element={<AdminDashboardHome />}
+					/>
 					{/* <Route
+						path='consumerDashboard'
+						element={<ConsumerDashboardHome />}
+					/> */}
+					<Route
 						path='profile'
 						element={<ConsumerDashboardProfile />}
-					/> */}
+					/>
 					<Route path='addBus' element={<AdminBusInventoryAdd />} />
 					{/* <Route path='request' element={<ConsumeRequestSeat />} /> */}
 					<Route
@@ -71,7 +78,7 @@ function App() {
 						path='stoppageUpdate/:stoppageId'
 						element={<AdminBusStoppageUpdate />}
 					/>
-					{/* <Route path='adminlogin' element={<AdminLogin />} /> */}
+					<Route path='adminlogin' element={<AdminLogin />} />
 				</Route>
 				<Route path='*' element={<NotFound />} />
 			</Routes>

@@ -1,9 +1,11 @@
-import React from 'react'
-
+import React from 'react';
+import ConsumerDashboardProfile from './ConsumerDashboardProfile';
 const ConsumerDashboardHome = () => {
-  return (
-    <div>ConsumerDashboardHome</div>
-  )
-}
+	return (
+		<div>
+			<ConsumerDashboardProfile />
+		</div>
+	);
+};
 
-export default ConsumerDashboardHome
+export default ConsumerDashboardHome;

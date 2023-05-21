@@ -68,6 +68,15 @@ const AdminLogin = () => {
 							/>
 						</div>
 					</form>
+					<p className='mt-5'>
+						Already have an account ?
+						<Link
+							className='form-link text-base text-[#0E1C36] font-semibold ml-2'
+							to='/adminRegister'
+						>
+							Sign Up
+						</Link>
+					</p>
 				</article>
 			</div>
 		</section>

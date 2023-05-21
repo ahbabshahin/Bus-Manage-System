@@ -39,7 +39,7 @@ const login = async (req, res) => {
 	}
 
 	const user = await User.findOne({ email });
-
+	console.log(user);
 	if (!user) {
 		throw new CustomError.UnauthenticatedError('Invalid Credentials');
 	}
@@ -56,10 +56,9 @@ const login = async (req, res) => {
 	res.status(StatusCodes.OK).json({ user: tokenUser });
 };
 
-
 const adminLogin = async (req, res) => {
 	const { email, password } = req.body;
-    console.log(req.body);
+	console.log(req.body);
 
 	if (!email || !password) {
 		throw new CustomError.BadRequestError(
@@ -68,7 +67,7 @@ const adminLogin = async (req, res) => {
 	}
 
 	const user = await User.findOne({ email });
-
+	console.log(user);
 	if (!user || user.role !== 'admin') {
 		throw new CustomError.UnauthenticatedError('Invalid Credentials');
 	}
@@ -92,7 +91,6 @@ const logout = async (req, res) => {
 	});
 	res.status(StatusCodes.OK).json({ msg: 'user logged out!' });
 };
-
 
 module.exports = {
 	register,

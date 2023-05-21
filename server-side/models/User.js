@@ -31,7 +31,7 @@ const UserSchema = new mongoose.Schema(
 		},
 
 		contacts: {
-			type: mongoooseTypePhone,
+			type: Number,
 			required: [true, 'Please provide your Phone number'],
 		},
 
@@ -45,7 +45,7 @@ const UserSchema = new mongoose.Schema(
 			type: String,
 			enum: ['Chottor', 'Kazir Bazar', 'Temuki'],
 			default: 'Chottor',
-			required: true,
+			// required: true,
 		},
 		timeSlot: {
 			type: String,
@@ -60,7 +60,7 @@ const UserSchema = new mongoose.Schema(
 
 		studentId: {
 			type: String,
-			unique: true,
+			// unique: true,
 		},
 		batch: {
 			type: Number,
