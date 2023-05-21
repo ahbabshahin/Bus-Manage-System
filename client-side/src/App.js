@@ -25,12 +25,13 @@ import NotFound from './Pages/NotFoundPage/NotFound/NotFound';
 import DashboardHome from './Pages/Dashboard/DashboardHome/DashboardHome';
 import AdminDashboardHome from './Pages/Dashboard/AdminDashboard/AdminDashboardHome/AdminDashboardHome';
 
-import Home from './Pages/HomePage/Home/Home';
+import Home from './Pages/Home/Home/Home';
 
 function App() {
 	return (
 		<div className='App'>
 			<Routes>
+
 				<Route path='/' element={<Home />}></Route>
 				{/* <Route path='home' element={<Home />} /> */}
 				<Route path='adminlogin' element={<AdminLogin />} />
