@@ -1,14 +1,14 @@
 import React from 'react';
 import { FaUmbrellaBeach } from 'react-icons/fa';
-import { BiLogInCircle } from 'react-icons/bi';
+// import { BiLogInCircle } from 'react-icons/bi';
 import { Link } from 'react-router-dom';
 //import useFirebase from '../../../hooks/useFirebase';
-import { Avatar } from '@mui/material';
-import useAuth from '../../../hooks/useAuth';
+// import { Avatar } from '@mui/material';
+// import useAuth from '../../../hooks/useAuth';
 
 const Header = () => {
-	 //const { user } = useFirebase();
-     const {user} = useAuth();
+	//const { user } = useFirebase();
+	//      const {user} = useAuth();
 
 	return (
 		<div>
@@ -33,8 +33,8 @@ const Header = () => {
            
           '
 							>
-								<FaUmbrellaBeach className=' text-brand text-4xl mb-4' />
-								&nbsp; <span>GetSpace</span>
+								{/* <FaUmbrellaBeach className=' text-brand text-4xl mb-4' /> */}
+								&nbsp; <span>Bus Management System</span>
 							</p>
 						</div>
 					</div>
@@ -42,7 +42,7 @@ const Header = () => {
 					<div className='items-center md:flex my-2'>
 						<div className='flex flex-col md:flex-row md:mx-6 '>
 							<Link
-								to='/'
+								to='register'
 								className='
             my-1
             text-dark
@@ -50,10 +50,10 @@ const Header = () => {
             md:mx-4 md:my-0
           '
 							>
-								Home
+								Select User
 							</Link>
-							<Link
-								to='/places'
+							{/* <Link
+								to=''
 								className='
             my-1
             text-dark
@@ -61,9 +61,9 @@ const Header = () => {
           '
 							>
 								Places to stay
-							</Link>
+							</Link> */}
 							<Link
-								to='dashboard/user'
+								to='/dashboard'
 								className='
             my-1
             text-dark
@@ -74,7 +74,7 @@ const Header = () => {
 							</Link>
 						</div>
 					</div>
-					<div className='flex items-center space-x-4'>
+					{/* <div className='flex items-center space-x-4'>
 						{user && (
 							<Link to='/host'>
 								<button class='bg-white hover:bg-black hover:text-white  text-black border border-black py-1 px-6 rounded-lg'>
@@ -103,7 +103,7 @@ const Header = () => {
 								</div>
 							)}
 						</div>
-					</div>
+					</div> */}
 				</div>
 			</nav>
 		</div>

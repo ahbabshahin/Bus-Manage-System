@@ -8,7 +8,7 @@ import useAuth from '../../../hooks/useAuth';
 
 const consumerLinks = [
 	{
-		to: '/dashboard',
+		to: '/dashboard/consumerInventory',
 		text: 'Dashboard',
 		icon: <AiOutlineHome />,
 	},

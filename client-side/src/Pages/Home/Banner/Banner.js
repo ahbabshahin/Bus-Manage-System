@@ -9,10 +9,16 @@ const Banner = () => {
 				{/* <h1 className='text-6xl text-gray-300 mb-16'>
 					Not sure where to go?&nbsp;Perfect.
 				</h1> */}
-                <img className='banner-container' src={metro} alt='' />
-				<button className='btn-primary py-3 px-8 rounded-lg text-white font-medium ml-80'>
+				<img
+					className='banner-container'
+					// height={10}
+					// width={1000}
+					src={metro}
+					alt=''
+				/>
+				{/* <button className='btn-primary py-3 px-8 rounded-lg text-white font-medium ml-80'>
 					Explore
-				</button>
+				</button> */}
 			</div>
 		</div>
 	);

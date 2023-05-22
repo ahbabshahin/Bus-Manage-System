@@ -72,12 +72,12 @@ const StudentProfile = () => {
 						</div>
 					))}
 				</form>
-				<div className='mt-20'>
+				{/* <div className='mt-20'>
 					<p>User Info</p>
 					<h2 className='text-2xl font-medium'>Taylor Silora</h2>
 					<h3>taylorSilora@gmail.com</h3>
 					<h4>+880349499493</h4>
-				</div>
+				</div> */}
 			</div>
 		</section>
 	);

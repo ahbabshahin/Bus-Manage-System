@@ -1,8 +1,11 @@
 .banner-container {
-	background: 
-		center/cover no-repeat fixed;
+	background: center/cover no-repeat fixed;
 
 	min-height: calc(90vh - 62px);
+	/* min-height: calc(100); */
+	/* padding-top: 3px; */
+	/* width: 800px;
+	height: 500px; */
 	display: flex;
 	justify-content: center;
 	align-items: center;
