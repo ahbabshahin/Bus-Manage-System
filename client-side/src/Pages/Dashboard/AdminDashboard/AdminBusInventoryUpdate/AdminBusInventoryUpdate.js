@@ -23,17 +23,19 @@ const AdminBusInventoryUpdate = () => {
 
 	const { register, handleSubmit, reset } = useForm();
 	const onSubmit = async (data) => {
-		console.log(data);
+		// console.log(data);
 		const { routeNo, busNo, capacity, name, contactNumber } = data;
 
 		try {
-			const res = await axios.post('/bus/update/:id', {
+			const res = await axios.post('/bus/:id', {
 				routeNo,
 				busNo,
 				capacity,
 				driverInfo: { name, contactNumber },
 				isActive: isActiveRef.current.checked,
 			});
+			setBus(res.data.bus);
+			// console.log(res.data.bus);
 			navigate('/dashboard/inventory');
 		} catch (error) {
 			console.log(error);
@@ -90,7 +92,7 @@ const AdminBusInventoryUpdate = () => {
 								Update Bus
 							</h2>
 							<p className='text-sm text-gray-600'>
-								adding new bus to inventory
+								updating bus to inventory
 							</p>
 						</div>
 						<div className='py-2 '>

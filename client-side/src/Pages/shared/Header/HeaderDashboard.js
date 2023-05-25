@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 // import { Avatar } from '@mui/material';
 import useAuth from '../../../hooks/useAuth';
 
-const Header = () => {
+const HeaderDashboard = () => {
 	//const { user } = useFirebase();
 	const { user } = useAuth();
 
@@ -76,7 +76,7 @@ const Header = () => {
 									Home
 								</Link>
 							)}
-							{user && (
+							{/* {user && (
 								<Link
 									to='/dashboard'
 									className='
@@ -87,7 +87,7 @@ const Header = () => {
 								>
 									Dashboard
 								</Link>
-							)}
+							)} */}
 						</div>
 					</div>
 					{/* <div className='flex items-center space-x-4'>
@@ -126,4 +126,4 @@ const Header = () => {
 	);
 };
 
-export default Header;
+export default HeaderDashboard;

@@ -9,7 +9,7 @@ const AdminBusStoppage = () => {
 
 	useEffect(() => {
 		axios
-			.get('/stoppage')
+			.get('/stoppage/get')
 			.then((res) => {
 				setStoppageList(res.data.stoppages);
 				console.log(res.data);
@@ -43,40 +43,34 @@ const AdminBusStoppage = () => {
 				{/* Existing Bus Update list */}
 				<div className='grid grid-cols-3 gap-3'>
 					{stoppageList &&
-						stoppageList.map(
-							({ _id, routeNo, label, latitude, longitude }) => (
-								<div
-									key={_id}
-									className='border-2 border-gray-200 hover:border-dark   rounded-xl p-5 duration-200 ease-in-out'
-								>
-									<div className='text-lg font-semibold  text-center '>
-										<p className=''>Label : {label}</p>
-										<p className='text-base'>
-											Route Number : {routeNo}
-										</p>
-									</div>
-									<div className='border border-light shadow-sm h-0 bg-light mb-5'></div>
-									<div className='text-base font-medium text-center'>
-										<p className='space-x-2'>
-											<span>Latitude {latitude}</span>
-											<span>Longitude {longitude}</span>
-										</p>
-										<div className='text-center mx-auto'>
-											<button
-												onClick={() =>
-													navigate(
-														`/dashboard/stoppageUpdate/${_id}`
-													)
-												}
-												className='block mx-auto w-full mt-5 py-2 border bg-secondary  rounded-lg hover:bg-dark hover:text-white'
-											>
-												Edit
-											</button>
-										</div>
+						stoppageList.map(({ _id, routeNo, label }) => (
+							<div
+								key={_id}
+								className='border-2 border-gray-200 hover:border-dark   rounded-xl p-5 duration-200 ease-in-out'
+							>
+								<div className='text-lg font-semibold  text-center '>
+									<p className=''>Label : {label}</p>
+									<p className='text-base'>
+										Route : {routeNo}
+									</p>
+								</div>
+								<div className='border border-light shadow-sm h-0 bg-light mb-5'></div>
+								<div className='text-base font-medium text-center'>
+									<div className='text-center mx-auto'>
+										<button
+											onClick={() =>
+												navigate(
+													`/dashboard/stoppageUpdate/${_id}`
+												)
+											}
+											className='block mx-auto w-full mt-5 py-2 border bg-secondary  rounded-lg hover:bg-dark hover:text-white'
+										>
+											Edit
+										</button>
 									</div>
 								</div>
-							)
-						)}
+							</div>
+						))}
 				</div>
 			</article>
 		</div>

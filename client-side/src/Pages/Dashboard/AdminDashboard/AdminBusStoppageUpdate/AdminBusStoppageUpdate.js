@@ -7,24 +7,23 @@ const AdminBusStoppageUpdate = () => {
 	const { stoppageId: id } = useParams();
 	const { register, handleSubmit, reset } = useForm();
 	const navigate = useNavigate();
-	const [ stoppage, setStoppage ] = useState();
+	const [stoppage, setStoppage] = useState();
 
 	useEffect(() => {
 		axios
-			.get(`/stoppages/get/${id}`)
+			.get(`/stoppage/get/${id}`)
 			.then((res) => {
-				setStoppage(res.data.stoppage);
+				setStoppage(res.data.stoppages);
 			})
 			.catch((err) => {
 				console.log(err);
 			});
 	}, []);
 
-
 	const inputs = [
 		{
-			inputType: 'number',
-			inputTitle: 'Route Number',
+			inputType: 'text',
+			inputTitle: 'Route ',
 			inputData: 'routeNo',
 			value: stoppage?.routeNo,
 		},
@@ -34,28 +33,15 @@ const AdminBusStoppageUpdate = () => {
 			inputData: 'label',
 			value: stoppage?.label,
 		},
-		{
-			inputType: 'text',
-			inputTitle: 'Latitude',
-			inputData: 'latitude',
-			value: stoppage?.latitude,
-		},
-		{
-			inputType: 'text',
-			inputTitle: 'Longitude',
-			inputData: 'longitude',
-			value: stoppage?.longitude,
-		},
 	];
 
-	const onSubmit =  async (data) => {
+	const onSubmit = async (data) => {
 		try {
 			const res = await axios.post('/stoppage/update/:id', data);
 			navigate('/dashboard/stoppages');
 		} catch (error) {
-			console.log(error)
+			console.log(error);
 		}
-
 
 		reset();
 	};

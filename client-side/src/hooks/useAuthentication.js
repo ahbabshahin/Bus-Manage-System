@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+// import { redirect } from 'react-router-dom';
 
 const useAuthentication = () => {
 	const [user, setUser] = useState({});
@@ -11,20 +12,33 @@ const useAuthentication = () => {
 		try {
 			const response = await axios.post('auth/register', user);
 			setUser(response.data.user);
-			console.log(response.data.user);
+			// console.log(response.data.user);
 			navigate('/consumerBusInfo');
 		} catch (error) {
 			console.log(error);
 		}
 	};
 
-	const handleConsumerLogin = async (user, navigate) => {
+	const handleAdminRegister = async (user, navigate) => {
 		console.log(user);
+
+		try {
+			const response = await axios.post('auth/register', user);
+			setUser(response.data.user);
+			// console.log(response.data.user);
+			navigate('/dashboard');
+		} catch (error) {
+			console.log(error);
+		}
+	};
+
+	const handleConsumerLogin = async (user, navigate) => {
+		// console.log(user);
 
 		try {
 			const response = await axios.post('auth/login', user);
 			setUser(response.data.user);
-			console.log(response.data.user);
+			// console.log(response.data.user);
 			navigate('/dashboard');
 		} catch (error) {
 			console.log(error.response.data);
@@ -37,7 +51,7 @@ const useAuthentication = () => {
 		try {
 			const response = await axios.post('auth/admin-login', data);
 			setUser(response.data.user);
-			console.log(response.data.user);
+			// console.log(response.data.user);
 			navigate('/dashboard');
 		} catch (error) {
 			console.log(error.response.data);
@@ -46,12 +60,13 @@ const useAuthentication = () => {
 
 	const handleLogout = async (navigate) => {
 		try {
-			const response = await axios.get('auth/logout');
-			setUser(() => null);
-			navigate('/');
+			const response = await axios.get('/auth/logout');
+			setUser(null);
+			window.location.href = 'http://localhost:3000/';
+
 			console.log(response);
 		} catch (error) {
-			console.log(error.response.data);
+			console.log(error);
 		}
 	};
 
@@ -68,6 +83,7 @@ const useAuthentication = () => {
 
 	return {
 		user,
+		handleAdminRegister,
 		handleConsumerRegister,
 		handleConsumerLogin,
 		handleLoginAdmin,

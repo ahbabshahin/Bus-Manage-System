@@ -1,6 +1,8 @@
 import React from 'react';
 import SectionTitle from '../shared/SectionTitle/SectionTitle';
 import metroBus from '../../Images/metroBus.jpeg';
+import Header from '../shared/Header/Header';
+
 // import BannerCard from './BannerCard';
 // import {MdOutlineBeachAccess} from "react-icons/md";
 
@@ -25,7 +27,7 @@ const CategoryCarousel = () => {
 								
 							</p> */}
 							<h2 className='text-2xl font-medium text-gray-700'>
-								<a href='consumerBusInfo'>Bus Details</a>
+								<a href='/consumerInventory'>Bus Details</a>
 							</h2>
 							<p className='text-sm pr-4 py-4'>
 								{/* <span className='font-extrabold text-gray-500'>

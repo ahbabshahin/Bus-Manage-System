@@ -8,8 +8,8 @@ import useAuth from '../../../hooks/useAuth';
 
 const consumerLinks = [
 	{
-		to: '/dashboard/consumerInventory',
-		text: 'Dashboard',
+		to: '/dashboard/consumerSeatStatus',
+		text: 'Seat Status',
 		icon: <AiOutlineHome />,
 	},
 	{
@@ -17,11 +17,11 @@ const consumerLinks = [
 		text: 'Profile',
 		icon: <GrUserSettings />,
 	},
-	{
-		to: '/dashboard/request',
-		text: 'Manage Requests',
-		icon: <IoBusOutline />,
-	},
+	// {
+	// 	to: '/dashboard/request',
+	// 	text: 'Manage Requests',
+	// 	icon: <IoBusOutline />,
+	// },
 ];
 
 const adminLinks = [

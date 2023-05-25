@@ -30,6 +30,10 @@ const CheckEmptySeatSchema = new mongoose.Schema(
 			type: Number,
 		},
 
+		emptySeat: {
+			type: Number,
+		},
+
 		// request:{
 		//     type: Number,
 		// }

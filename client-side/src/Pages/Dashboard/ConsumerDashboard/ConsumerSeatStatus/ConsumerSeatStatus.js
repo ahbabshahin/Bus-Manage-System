@@ -6,14 +6,14 @@ import { MdOutlineLibraryAdd } from 'react-icons/md';
 
 import HeaderDashboard from '../../../shared/Header/HeaderDashboard';
 
-const ConsumerBusInventory = () => {
+const ConsumerSeatStatus = () => {
 	const [busList, setBusList] = useState([]);
 	// const navigate = useNavigate();
 	useEffect(() => {
 		axios
-			.get('/bus/get')
+			.get('/iAmIn/get')
 			.then((res) => {
-				setBusList(res.data.bus);
+				setBusList(res.data.emptySeat);
 				console.log(res);
 			})
 			.catch((err) => {
@@ -39,33 +39,23 @@ const ConsumerBusInventory = () => {
 					<span>
 						<FaBus className='text-dark mr-3' />
 					</span>
-					<h2 className=' text-dark '>List of Existing Bus</h2>
+					<h2 className=' text-dark '>List of Existing Seat</h2>
 				</div>
 				{/* Existing Bus Update list */}
 				<div>
 					{busList &&
-						busList.map(
-							({
-								_id,
-								busNo,
-								routeNo,
-								isActive,
-								capacity,
-								driverInfo,
-							}) => (
-								<div
-									key={_id}
-									className='border-2 border-gray-200 hover:border-dark space-y-2 mb-2 rounded items-center py-2 px-3 flex justify-between'
-								>
-									<p>BusNo : {busNo}</p>
-									<p>Route : {routeNo}</p>
-									<p>Capacity: {capacity}</p>
-									<p>Driver: {driverInfo.contactNumber}</p>
-									{/* should be dynamic */}
-									<p className='font-medium'>
-										{isActive ? 'active' : 'inactive'}
-									</p>
-									{/* <div>
+						busList.map(({ _id, busNo, routeNo, emptySeat }) => (
+							<div
+								key={_id}
+								className='border-2 border-gray-200 hover:border-dark space-y-2 mb-2 rounded items-center py-2 px-3 flex justify-between'
+							>
+								<p>BusNo : {busNo}</p>
+								<p>Route : {routeNo}</p>
+								<p>Empty Seat: {emptySeat}</p>
+
+								{/* should be dynamic */}
+
+								{/* <div>
 										<button
 											onClick={() =>
 												navigate(
@@ -77,13 +67,12 @@ const ConsumerBusInventory = () => {
 											Edit
 										</button>
 									</div> */}
-								</div>
-							)
-						)}
+							</div>
+						))}
 				</div>
 			</article>
 		</section>
 		// </div>
 	);
 };
-export default ConsumerBusInventory;
+export default ConsumerSeatStatus;

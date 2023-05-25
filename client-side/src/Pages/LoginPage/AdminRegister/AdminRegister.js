@@ -1,30 +1,52 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import useAuth from '../../../hooks/useAuth';
+import useAuthentication from '../../../hooks/useAuthentication';
 import userLogin from '../../../Images/user-login.png';
 
 const initialInputs = [
 	{
 		inputType: 'Name',
+		property: 'name',
 	},
 	{
 		inputType: 'Email',
+		property: 'email',
 	},
 	{
 		inputType: 'password',
+		property: 'password',
 	},
 	{
 		inputType: 'contact Number',
+		property: 'contacts',
 	},
 ];
 
 const AdminRegister = () => {
+	const [finInputList, setFinInputList] = useState(initialInputs);
+	const [role, setRole] = useState('student');
 	// form submit
 	const { register, handleSubmit, reset } = useForm();
 
+	const { handleAdminRegister } = useAuth();
+	const navigate = useNavigate();
+
+	const handleRole = (newRole) => {
+		setRole((prevRole) => newRole);
+
+		if (newRole === 'admin') {
+			setFinInputList((prevList) => [...initialInputs]);
+		} else {
+			setFinInputList((prevList) => [...initialInputs]);
+		}
+	};
+
 	const onSubmit = (data) => {
 		console.log(data);
-
+		data.role = role;
+		handleAdminRegister(data, navigate);
 		reset();
 	};
 
@@ -44,7 +66,7 @@ const AdminRegister = () => {
 					</p>
 					{/* input forms */}
 					<form onSubmit={handleSubmit(onSubmit)}>
-						{initialInputs.map(({ inputType }, index) => (
+						{finInputList.map(({ inputType }, index) => (
 							<div key={index} className=' py-2'>
 								<input
 									className='w-1/2 border py-3 pl-3 rounded-lg focus:outline-none focus:ring-1 focus:border-blue-500'

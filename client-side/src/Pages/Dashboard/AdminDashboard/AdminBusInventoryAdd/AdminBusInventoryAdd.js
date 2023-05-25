@@ -3,6 +3,8 @@ import React, { useRef } from 'react';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 
+const routes = ['Chottor', 'Kazir Bazar', 'Temuki'];
+
 const inputs = [
 	{
 		inputType: 'text',
@@ -12,7 +14,7 @@ const inputs = [
 	{
 		inputType: 'text',
 		inputTitle: 'Route',
-		inputData: 'routeNo',
+		inputData: { routes },
 	},
 	{
 		inputType: 'number',

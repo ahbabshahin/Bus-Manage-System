@@ -28,6 +28,7 @@ import AdminDashboardHome from './Pages/Dashboard/AdminDashboard/AdminDashboardH
 
 import Home from './Pages/Home/Home/Home';
 import Register from './Pages/HomePage/Home/Register.js';
+import ConsumerSeatStatus from './Pages/Dashboard/ConsumerDashboard/ConsumerSeatStatus/ConsumerSeatStatus';
 
 function App() {
 	return (
@@ -41,16 +42,20 @@ function App() {
 				<Route path='consumerLogin' element={<ConsumerLogin />} />
 				{/* <Route path='header' element={<Header />}></Route> */}
 				<Route
-					path='consumerBusInfo'
+					path='/consumerBusInfo'
 					element={<ConsumerBusDetails />}
 				/>
 				<Route
-					path='/dashboard/consumerInventory'
+					path='consumerInventory'
 					element={<ConsumerBusInventory />}
 				/>
 
 				<Route path='dashboard/*' element={<DashboardHome />}>
 					<Route path='inventory' element={<AdminBusInventory />} />
+					<Route
+						path='consumerSeatStatus'
+						element={<ConsumerSeatStatus />}
+					/>
 					<Route
 						path='admindashboard'
 						element={<AdminDashboardHome />}
