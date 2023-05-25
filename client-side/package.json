@@ -12,6 +12,8 @@
 		"react-dom": "^18.2.0",
 		"@mui/lab": "^5.0.0-alpha.59",
 		"@mui/material": "^5.2.2",
+		"@emotion/react": "^11.7.0",
+		"@emotion/styled": "^11.6.0",
 		"react-hook-form": "^7.35.0",
 		"react-icons": "^4.4.0",
 		"react-router-dom": "^6.11.1",
