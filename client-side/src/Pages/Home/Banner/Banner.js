@@ -11,7 +11,7 @@ const Banner = () => {
 				</h1> */}
                 <img className='banner-container' src={metro} alt='' />
 				<button className='btn-primary py-3 px-8 rounded-lg text-white font-medium ml-80'>
-					Explore hh
+					Explore
 				</button>
 			</div>
 		</div>

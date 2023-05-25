@@ -1,111 +1,64 @@
 import React from 'react';
-import { FaUmbrellaBeach } from 'react-icons/fa';
-import { BiLogInCircle } from 'react-icons/bi';
-import { Link } from 'react-router-dom';
-//import useFirebase from '../../../hooks/useFirebase';
-import { Avatar } from '@mui/material';
+import { BsPerson } from 'react-icons/bs';
+import { FiSearch } from 'react-icons/fi';
+import { HiOutlineLocationMarker } from 'react-icons/hi';
+import { MdDateRange } from 'react-icons/md';
 
-const Header = () => {
-	const { user } = useFirebase();
-
+const Searchbar = () => {
 	return (
-		<div>
-			{/* navbar */}
-			<nav className='bg-white  '>
-				<div
-					className='
-      					container
-      					px-6
-      					py-3
-      					mx-auto
-      					md:flex md:justify-between md:items-center'
-				>
-					<div className=''>
-						<div>
-							<p
-								className='
-            text-xl
-            font-bold
-            text-dark
-            flex items-center justify-between
-           
-          '
+		<div className='-mt-16'>
+			{/* search bar */}
+			<form className='bg-transparent '>
+				<div className='w-2/4 mx-auto mt-2 mb-2'>
+					<div className=' grid grid-cols-10 rounded-lg shadow-md py-6 px-10 bg-light'>
+						<div className='col-span-3'>
+							<label
+								htmlFor=''
+								className=' text-gray-400 flex space-x-2 items-center'
 							>
-								<FaUmbrellaBeach className=' text-brand text-4xl mb-4' />
-								&nbsp; <span>GetSpace</span>
-							</p>
+								<HiOutlineLocationMarker />{' '}
+								<span>Location</span>
+							</label>
+							<input
+								type='text'
+								placeholder='Where are you going?'
+								className=' focus:outline-none   bg-transparent flex-grow placeholder-black'
+							/>
 						</div>
-					</div>
-
-					<div className='items-center md:flex my-2'>
-						<div className='flex flex-col md:flex-row md:mx-6 '>
-							<Link
-								to='/'
-								className='
-            my-1
-            text-dark
-         
-            md:mx-4 md:my-0
-          '
+						<div className='col-span-3'>
+							<label
+								htmlFor=''
+								className='text-gray-400 flex space-x-2 items-center'
 							>
-								Home
-							</Link>
-							<Link
-								to='/places'
-								className='
-            my-1
-            text-dark
-            md:mx-4 md:my-0
-          '
-							>
-								Places to stay
-							</Link>
-							<Link
-								to='dashboard/user'
-								className='
-            my-1
-            text-dark
-            md:mx-4 md:my-0
-          '
-							>
-								Dashboard
-							</Link>
+								<MdDateRange /> <span>Date</span>
+							</label>
+							<input
+								type='text'
+								placeholder='Choose Date'
+								className=' focus:outline-none     bg-transparent flex-grow placeholder-black'
+							/>
 						</div>
-					</div>
-					<div className='flex items-center space-x-4'>
-						{user && (
-							<Link to='/host'>
-								<button class='bg-white hover:bg-black hover:text-white  text-black border border-black py-1 px-6 rounded-lg'>
-									Become a Host
-								</button>
-							</Link>
-						)}
-						<div className='  md:block mr-5 '>
-							{!user ? (
-								<Link to='/authenticate'>
-									<button
-										className='text-white bg-dark hover:bg-white hover:text-black
-										hover:border-black border flex items-center px-4 rounded-lg py-1'
-									>
-										<span>Sign in</span>
-										<BiLogInCircle className=' hover:text-black display-inline ml-2' />
-									</button>
-								</Link>
-							) : (
-								<div className='flex items-center space-x-4 px-4 py-1 border box-shadow rounded-lg'>
-									<p>{user?.displayName?.split(' ', 1)[0]}</p>
-									<Avatar
-										src={user.photoURL}
-										style={{ width: 28, height: 28 }}
-									/>
-								</div>
-							)}
+						<div className='col-span-3 '>
+							<label
+								htmlFor=''
+								className='text-gray-400 flex space-x-2 items-center '
+							>
+								<BsPerson /> <span>Guests</span>
+							</label>
+							<input
+								type='text'
+								placeholder='Add Guest'
+								className=' focus:outline-none  border-rounded bg-transparent flex-grow placeholder-black '
+							/>
 						</div>
+						<button className='btn-primary flex justify-center items-center px-3 text-2xl border w-3/4 justify-self-end'>
+							<FiSearch />
+						</button>
 					</div>
 				</div>
-			</nav>
+			</form>
 		</div>
 	);
 };
 
-export default Header;
+export default Searchbar;

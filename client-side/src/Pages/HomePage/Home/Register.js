@@ -1,12 +1,15 @@
 import React from 'react';
 import LoginStarter from '../LoginStarter/LoginStarter';
+import Header from '../../shared/Header/Header';
 
 const Home = () => {
+	// className='container'
 	return (
-		<div className='container'>
+		<div>
+			<Header />
 			<LoginStarter />
-			{/* 	<Navbar /> */}
-			{/* <Footer /> */}
+			{/* <Navbar />
+			<Footer /> */}
 		</div>
 	);
 };

@@ -1,6 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import AdminBusInventory from './Pages/Dashboard/AdminDashboard/AdminBusInventory/AdminBusInventory';
+import ConsumerBusInventory from './Pages/Dashboard/ConsumerDashboard/ConsumerBusInventory/ConsumerBusInventory';
 import AdminBusInventoryAdd from './Pages/Dashboard/AdminDashboard/AdminBusInventoryAdd/AdminBusInventoryAdd';
 import AdminBusInventoryUpdate from './Pages/Dashboard/AdminDashboard/AdminBusInventoryUpdate/AdminBusInventoryUpdate';
 import AdminBusRoute from './Pages/Dashboard/AdminDashboard/AdminBusRoute/AdminBusRoute';
@@ -26,22 +27,26 @@ import DashboardHome from './Pages/Dashboard/DashboardHome/DashboardHome';
 import AdminDashboardHome from './Pages/Dashboard/AdminDashboard/AdminDashboardHome/AdminDashboardHome';
 
 import Home from './Pages/Home/Home/Home';
+import Register from './Pages/HomePage/Home/Register.js';
 
 function App() {
 	return (
 		<div className='App'>
 			<Routes>
-
 				<Route path='/' element={<Home />}></Route>
-				{/* <Route path='home' element={<Home />} /> */}
+				<Route path='register' element={<Register />} />
 				<Route path='adminlogin' element={<AdminLogin />} />
 				<Route path='adminRegister' element={<AdminRegister />} />
 				<Route path='consumerRegister' element={<ConsumerRegister />} />
 				<Route path='consumerLogin' element={<ConsumerLogin />} />
+				{/* <Route path='header' element={<Header />}></Route> */}
 				<Route
-					//not working correctly
 					path='consumerBusInfo'
 					element={<ConsumerBusDetails />}
+				/>
+				<Route
+					path='/dashboard/consumerInventory'
+					element={<ConsumerBusInventory />}
 				/>
 
 				<Route path='dashboard/*' element={<DashboardHome />}>
