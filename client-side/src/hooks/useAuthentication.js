@@ -13,7 +13,7 @@ const useAuthentication = () => {
 			const response = await axios.post('auth/register', user);
 			setUser(response.data.user);
 			// console.log(response.data.user);
-			navigate('/consumerBusInfo');
+			navigate('/dashboard');
 		} catch (error) {
 			console.log(error);
 		}

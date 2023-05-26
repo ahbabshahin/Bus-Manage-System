@@ -1,9 +1,9 @@
-const User = require('../models/User');
+const User = require('../models/Users');
 const { StatusCodes } = require('http-status-codes');
 const CustomError = require('../errors');
 const jwt = require('jsonwebtoken');
 const { attachCookiesToResponse, createTokenUser } = require('../utils');
-const { rawListeners } = require('../models/User');
+// const { rawListeners } = require('../models/User');
 
 const register = async (req, res) => {
 	const { email, name, password, contacts } = req.body;

@@ -1,10 +1,10 @@
 const mongoose = require('mongoose');
 const validator = require('validator');
 const mongoooseTypePhone = require('mongoose-type-phone');
-
+var Schema = mongoose.Schema;
 const bcrypt = require('bcryptjs');
 
-const UserSchema = new mongoose.Schema(
+const UserSchema = new Schema(
 	{
 		name: {
 			type: String,
@@ -60,8 +60,8 @@ const UserSchema = new mongoose.Schema(
 
 		studentId: {
 			type: String,
-			// unique: true,
 		},
+
 		batch: {
 			type: Number,
 		},
@@ -85,4 +85,9 @@ UserSchema.methods.comparePassword = async function (candidatePassword) {
 	return isMatch;
 };
 
-module.exports = mongoose.model('User', UserSchema);
+mongoose.models = {};
+
+const user = mongoose.models.User || mongoose.model('User', UserSchema);
+// module.exports = mongoose.model('User', UserSchema);
+
+module.exports = user;

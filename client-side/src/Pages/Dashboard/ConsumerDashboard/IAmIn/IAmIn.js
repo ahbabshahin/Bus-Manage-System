@@ -1,9 +1,16 @@
 import axios from 'axios';
-import React from 'react';
+import React, { useRef } from 'react';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 
+const routes = ['Chottor', 'Kazir Bazar', 'Temuki'];
+
 const inputs = [
+	{
+		inputType: 'text',
+		inputTitle: 'Bus Number',
+		inputData: 'busNo',
+	},
 	{
 		inputType: 'text',
 		inputTitle: 'Route',
@@ -11,42 +18,41 @@ const inputs = [
 	},
 	{
 		inputType: 'text',
-		inputTitle: 'label',
-		inputData: 'label',
+		inputTitle: 'Student Id',
+		inputData: 'studentId',
+	},
+	{
+		inputType: 'text',
+		inputTitle: 'Role',
+		inputData: 'role',
 	},
 	// {
-	// 	inputType: 'text',
-	// 	inputTitle: 'Latitude',
-	// 	inputData: 'latitude',
-	// },
-	// {
-	// 	inputType: 'text',
-	// 	inputTitle: 'Longitude',
-	// 	inputData: 'longitude',
+	// 	inputType: 'number',
+	// 	inputTitle: 'Driver Contact Number',
+	// 	inputData: 'contactNumber',
 	// },
 ];
 
-const AdminBusStoppageAdd = () => {
+const IAmIn = () => {
 	const { register, handleSubmit, reset } = useForm();
+	// const isActiveRef = useRef(false);
 	const navigate = useNavigate();
 
 	const onSubmit = async (data) => {
-		const { routeNo, label } = data;
-		console.log(data);
-
+		const { routeNo, busNo, studentId, role } = data;
 		try {
-			const res = await axios.post('/stoppage/create', {
+			const res = await axios.post('/iAmIn/create', {
 				routeNo,
-				label,
+				busNo,
+				studentId,
+				role,
 			});
-			navigate('/dashboard/stoppages');
+			navigate('/dashboard/consumerSeatStatus');
 		} catch (error) {
 			console.log(error);
 		}
-
 		reset();
 	};
-
 	return (
 		<section className='justify-center mt-20'>
 			{/* input forms */}
@@ -56,25 +62,22 @@ const AdminBusStoppageAdd = () => {
 					<div className='flex justify-between '>
 						<div>
 							<h2 className='text-2xl font-semibold'>
-								Bus Stoppage
+								I Am In the Bus
 							</h2>
-							<p className='text-sm text-gray-600'>
-								add new bus stoppage
-							</p>
+							{/* <p className='text-sm text-gray-600'>
+								adding new bus to inventory
+							</p> */}
 						</div>
 						<div className='py-2 '>
 							<input
 								type='submit'
-								value={'Update'}
-								className=' border py-3 px-4 rounded-lg focus:outline-none focus:ring-1 focus:border-purple-600 text-white bg-dark'
+								value={'submit'}
+								className=' border py-3 px-3 rounded-lg focus:outline-none focus:ring-1 focus:border-purple-600 text-white bg-dark'
 							/>
 						</div>
 					</div>
 					{inputs.map(
-						(
-							{ inputType, inputTitle, inputData, value },
-							index
-						) => (
+						({ inputType, inputTitle, inputData }, index) => (
 							<div
 								key={index}
 								className='grid grid-cols-12 justify-between py-2 '
@@ -87,7 +90,6 @@ const AdminBusStoppageAdd = () => {
 										className='w-full bg-light border  py-3 pl-3 rounded-lg focus:outline-none focus:ring-1 focus:border-blue-500 border-secondary'
 										type={inputType}
 										name={inputTitle}
-										defaultValue={value}
 										placeholder={inputTitle}
 										{...register(`${inputData}`, {
 											required: true,
@@ -97,10 +99,19 @@ const AdminBusStoppageAdd = () => {
 							</div>
 						)
 					)}
+					<div>
+						{/* <input
+							type='checkbox'
+							ref={isActiveRef}
+							className='p-5 inline-block'
+						/>
+						<p className='inline-block ml-3 text-base'>
+							Bus is Active
+						</p> */}
+					</div>
 				</form>
 			</div>
 		</section>
 	);
 };
-
-export default AdminBusStoppageAdd;
+export default IAmIn;

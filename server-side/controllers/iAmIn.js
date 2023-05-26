@@ -1,6 +1,6 @@
 const EmptySeat = require('../models/CheckEmptySeat');
 const { StatusCodes } = require('http-status-codes');
-const User = require('../models/User');
+// const User = require('../models/Users');
 const Bus = require('../models/BusInventory');
 const CheckEmptySeat = require('../models/CheckEmptySeat');
 const { NotFoundError } = require('../errors');

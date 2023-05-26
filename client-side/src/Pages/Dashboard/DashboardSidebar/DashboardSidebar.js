@@ -1,6 +1,11 @@
 import axios from 'axios';
 import React from 'react';
-import { AiOutlineUser, AiOutlineHome, AiOutlineLogout } from 'react-icons/ai';
+import {
+	AiOutlineUser,
+	AiOutlineHome,
+	AiOutlineLogout,
+	// AiSeatOutline,
+} from 'react-icons/ai';
 import { GrUserSettings } from 'react-icons/gr';
 import { IoBusOutline } from 'react-icons/io5';
 import { NavLink, useNavigate } from 'react-router-dom';
@@ -16,6 +21,11 @@ const consumerLinks = [
 		to: '/dashboard/profile',
 		text: 'Profile',
 		icon: <GrUserSettings />,
+	},
+	{
+		to: '/dashboard/iAmIn',
+		text: 'I Am In the Bus',
+		// icon: <AiSeatOutline />,
 	},
 	// {
 	// 	to: '/dashboard/request',
@@ -45,16 +55,16 @@ const adminLinks = [
 		text: 'Stoppages',
 		icon: <AiOutlineHome />,
 	},
-	{
-		to: '/allocate-route',
-		text: 'Allocate route',
-		icon: <AiOutlineHome />,
-	},
-	{
-		to: '/more',
-		text: 'Suggestions',
-		icon: <AiOutlineHome />,
-	},
+	// {
+	// 	to: '/allocate-route',
+	// 	text: 'Allocate route',
+	// 	icon: <AiOutlineHome />,
+	// },
+	// {
+	// 	to: '/more',
+	// 	text: 'Suggestions',
+	// 	icon: <AiOutlineHome />,
+	// },
 ];
 
 const DashboardSidebar = () => {

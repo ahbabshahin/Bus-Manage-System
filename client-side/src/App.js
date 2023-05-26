@@ -29,6 +29,7 @@ import AdminDashboardHome from './Pages/Dashboard/AdminDashboard/AdminDashboardH
 import Home from './Pages/Home/Home/Home';
 import Register from './Pages/HomePage/Home/Register.js';
 import ConsumerSeatStatus from './Pages/Dashboard/ConsumerDashboard/ConsumerSeatStatus/ConsumerSeatStatus';
+import IAmIn from './Pages/Dashboard/ConsumerDashboard/IAmIn/IAmIn';
 
 function App() {
 	return (
@@ -56,6 +57,7 @@ function App() {
 						path='consumerSeatStatus'
 						element={<ConsumerSeatStatus />}
 					/>
+					<Route path='iAmIn' element={<IAmIn />} />
 					<Route
 						path='admindashboard'
 						element={<AdminDashboardHome />}
