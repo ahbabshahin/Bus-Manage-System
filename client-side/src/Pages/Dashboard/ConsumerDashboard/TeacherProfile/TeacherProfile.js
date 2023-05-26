@@ -7,16 +7,6 @@ const inputs = [
 		inputData: 'name',
 		text: '',
 	},
-	{
-		inputType: 'Batch No',
-		inputData: 'batch',
-		text: '',
-	},
-	{
-		inputType: 'section',
-		inputData: 'section',
-		text: '',
-	},
 ];
 
 const TeacherProfile = () => {
@@ -39,7 +29,7 @@ const TeacherProfile = () => {
 								Your Profile
 							</h2>
 							<p className='text-sm text-gray-600'>
-								Update your profile with name, batch and section
+								Update your profile
 							</p>
 						</div>
 						<div className='py-2 '>

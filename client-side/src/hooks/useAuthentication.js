@@ -52,7 +52,7 @@ const useAuthentication = () => {
 			const response = await axios.post('auth/admin-login', data);
 			setUser(response.data.user);
 			// console.log(response.data.user);
-			navigate('/dashboard');
+			navigate('/dashboard/admindashboard');
 		} catch (error) {
 			console.log(error.response.data);
 		}

@@ -11,7 +11,7 @@ import { IoBusOutline } from 'react-icons/io5';
 import { NavLink, useNavigate } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 
-const consumerLinks = [
+const consumerLinksSt = [
 	{
 		to: '/dashboard/consumerSeatStatus',
 		text: 'Seat Status',
@@ -25,6 +25,51 @@ const consumerLinks = [
 	{
 		to: '/dashboard/iAmIn',
 		text: 'I Am In the Bus',
+		// icon: <AiSeatOutline />,
+	},
+	// {
+	// 	to: '/dashboard/request',
+	// 	text: 'Manage Requests',
+	// 	icon: <IoBusOutline />,
+	// },
+];
+const consumerLinksT = [
+	// {
+	// 	to: '/dashboard/consumerSeatStatus',
+	// 	text: 'Seat Status',
+	// 	icon: <AiOutlineHome />,
+	// },
+	{
+		to: '/dashboard/profile',
+		text: 'Profile',
+		icon: <GrUserSettings />,
+	},
+	// {
+	// 	to: '/dashboard/iAmIn',
+	// 	text: 'I Am In the Bus',
+	// 	// icon: <AiSeatOutline />,
+	// },
+	// {
+	// 	to: '/dashboard/request',
+	// 	text: 'Manage Requests',
+	// 	icon: <IoBusOutline />,
+	// },
+];
+
+const consumerLinksD = [
+	// {
+	// 	to: '/dashboard/consumerSeatStatus',
+	// 	text: 'Seat Status',
+	// 	icon: <AiOutlineHome />,
+	// },
+	// {
+	// 	to: '/dashboard/profile',
+	// 	text: 'Profile',
+	// 	icon: <GrUserSettings />,
+	// },
+	{
+		to: '/dashboard/reached',
+		text: 'Reached Destination',
 		// icon: <AiSeatOutline />,
 	},
 	// {
@@ -94,8 +139,43 @@ const DashboardSidebar = () => {
 
 			{/* links */}
 			<div className='flex flex-col place-items-center gap-4'>
-				{user?.role !== 'admin' &&
-					consumerLinks.map(({ to, text, icon }, linkIdx) => (
+				{user?.role === 'student' &&
+					consumerLinksSt.map(({ to, text, icon }, linkIdx) => (
+						<NavLink
+							to={to}
+							key={linkIdx}
+							className={({ isActive }) =>
+								`px-4 py-2 text-xl flex justify-start items-center box-shadow border rounded-lg space-x-3 w-full ${
+									isActive
+										? ' text-dark border-secondary'
+										: 'text-black'
+								}`
+							}
+						>
+							{icon}
+							<h5 className='font-medium text-lg'>{text}</h5>
+						</NavLink>
+					))}
+				{user?.role === 'teacher' &&
+					consumerLinksT.map(({ to, text, icon }, linkIdx) => (
+						<NavLink
+							to={to}
+							key={linkIdx}
+							className={({ isActive }) =>
+								`px-4 py-2 text-xl flex justify-start items-center box-shadow border rounded-lg space-x-3 w-full ${
+									isActive
+										? ' text-dark border-secondary'
+										: 'text-black'
+								}`
+							}
+						>
+							{icon}
+							<h5 className='font-medium text-lg'>{text}</h5>
+						</NavLink>
+					))}
+
+				{user?.role === 'driver' &&
+					consumerLinksD.map(({ to, text, icon }, linkIdx) => (
 						<NavLink
 							to={to}
 							key={linkIdx}

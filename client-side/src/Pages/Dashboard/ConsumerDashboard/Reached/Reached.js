@@ -16,11 +16,11 @@ const inputs = [
 		inputTitle: 'Route',
 		inputData: 'routeNo',
 	},
-	{
-		inputType: 'text',
-		inputTitle: 'Student Id',
-		inputData: 'studentId',
-	},
+	// {
+	// 	inputType: 'text',
+	// 	inputTitle: 'Student Id',
+	// 	inputData: 'studentId',
+	// },
 	{
 		inputType: 'text',
 		inputTitle: 'Role',
@@ -33,18 +33,17 @@ const inputs = [
 	// },
 ];
 
-const IAmIn = () => {
+const Reached = () => {
 	const { register, handleSubmit, reset } = useForm();
 	// const isActiveRef = useRef(false);
 	const navigate = useNavigate();
 
 	const onSubmit = async (data) => {
-		const { routeNo, busNo, studentId, role } = data;
+		const { routeNo, busNo, role } = data;
 		try {
 			const res = await axios.post('/iAmIn/create', {
 				routeNo,
 				busNo,
-				studentId,
 				role,
 			});
 			navigate('/dashboard/consumerSeatStatus');
@@ -62,7 +61,7 @@ const IAmIn = () => {
 					<div className='flex justify-between '>
 						<div>
 							<h2 className='text-2xl font-semibold'>
-								I Am In the Bus
+								Reached The Destination
 							</h2>
 							{/* <p className='text-sm text-gray-600'>
 								adding new bus to inventory
@@ -114,4 +113,4 @@ const IAmIn = () => {
 		</section>
 	);
 };
-export default IAmIn;
+export default Reached;

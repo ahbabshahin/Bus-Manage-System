@@ -11,7 +11,6 @@ import AdminBusStoppage from './Pages/Dashboard/AdminDashboard/AdminBusStoppage/
 import AdminBusStoppageAdd from './Pages/Dashboard/AdminDashboard/AdminBusStoppageAdd/AdminBusStoppageAdd';
 import AdminBusStoppageUpdate from './Pages/Dashboard/AdminDashboard/AdminBusStoppageUpdate/AdminBusStoppageUpdate';
 
-// import ConsumerDashboardHome from './Pages/Dashboard/ConsumerDashboard/ConsumerDashboardHome/ConsumerDashboardHome';
 import ConsumerDashboardProfile from './Pages/Dashboard/ConsumerDashboard/ConsumerDashboardProfile/ConsumerDashboardProfile';
 
 import AdminLogin from './Pages/LoginPage/AdminLogin/AdminLogin';
@@ -30,6 +29,8 @@ import Home from './Pages/Home/Home/Home';
 import Register from './Pages/HomePage/Home/Register.js';
 import ConsumerSeatStatus from './Pages/Dashboard/ConsumerDashboard/ConsumerSeatStatus/ConsumerSeatStatus';
 import IAmIn from './Pages/Dashboard/ConsumerDashboard/IAmIn/IAmIn';
+import Reached from './Pages/Dashboard/ConsumerDashboard/Reached/Reached';
+// import ConsumerDashboardHome from './Pages/Dashboard/ConsumerDashboard/ConsumerDashboardHome/ConsumerDashboardHome';
 
 function App() {
 	return (
@@ -50,7 +51,6 @@ function App() {
 					path='consumerInventory'
 					element={<ConsumerBusInventory />}
 				/>
-
 				<Route path='dashboard/*' element={<DashboardHome />}>
 					<Route path='inventory' element={<AdminBusInventory />} />
 					<Route
@@ -58,6 +58,8 @@ function App() {
 						element={<ConsumerSeatStatus />}
 					/>
 					<Route path='iAmIn' element={<IAmIn />} />
+					<Route path='reached' element={<Reached />} />
+
 					<Route
 						path='admindashboard'
 						element={<AdminDashboardHome />}
