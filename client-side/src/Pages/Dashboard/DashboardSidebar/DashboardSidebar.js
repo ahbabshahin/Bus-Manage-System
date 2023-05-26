@@ -13,9 +13,9 @@ import useAuth from '../../../hooks/useAuth';
 
 const consumerLinksSt = [
 	{
-		to: '/dashboard/consumerSeatStatus',
-		text: 'Seat Status',
-		icon: <AiOutlineHome />,
+		to: '/dashboard/complaint',
+		text: 'Complaint',
+		// icon: <AiOutlineHome />,
 	},
 	{
 		to: '/dashboard/profile',
@@ -34,11 +34,11 @@ const consumerLinksSt = [
 	// },
 ];
 const consumerLinksT = [
-	// {
-	// 	to: '/dashboard/consumerSeatStatus',
-	// 	text: 'Seat Status',
-	// 	icon: <AiOutlineHome />,
-	// },
+	{
+		to: '/dashboard/complaint',
+		text: 'Complaint',
+		// icon: <AiOutlineHome />,
+	},
 	{
 		to: '/dashboard/profile',
 		text: 'Profile',
@@ -57,11 +57,11 @@ const consumerLinksT = [
 ];
 
 const consumerLinksD = [
-	// {
-	// 	to: '/dashboard/consumerSeatStatus',
-	// 	text: 'Seat Status',
-	// 	icon: <AiOutlineHome />,
-	// },
+	{
+		to: '/dashboard/complaint',
+		text: 'Complaint',
+		// icon: <AiOutlineHome />,
+	},
 	// {
 	// 	to: '/dashboard/profile',
 	// 	text: 'Profile',

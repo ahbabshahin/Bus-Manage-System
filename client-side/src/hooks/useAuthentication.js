@@ -39,7 +39,7 @@ const useAuthentication = () => {
 			const response = await axios.post('auth/login', user);
 			setUser(response.data.user);
 			// console.log(response.data.user);
-			navigate('/dashboard');
+			navigate('/dashboard/complaint');
 		} catch (error) {
 			console.log(error.response.data);
 		}
