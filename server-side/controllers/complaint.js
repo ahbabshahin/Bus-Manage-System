@@ -14,7 +14,21 @@ const getAllComplaint = async (req, res) => {
 	res.status(StatusCodes.OK).json({ gC });
 };
 
+const deleteComplaint = async (req, res) => {
+	const {
+		params: { id: busId },
+	} = req;
+
+	const cC = await Complaint.findByIdAndRemove({ _id: busId });
+
+	if (!cC) {
+		throw new NotFoundError(`No complaint found with id ${id}`);
+	}
+	res.status(StatusCodes.OK).send({ msg: 'successfully deleted' });
+};
+
 module.exports = {
 	createComplaint,
 	getAllComplaint,
+	deleteComplaint,
 };

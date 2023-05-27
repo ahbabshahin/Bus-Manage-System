@@ -105,11 +105,11 @@ const adminLinks = [
 	// 	text: 'Allocate route',
 	// 	icon: <AiOutlineHome />,
 	// },
-	// {
-	// 	to: '/more',
-	// 	text: 'Suggestions',
-	// 	icon: <AiOutlineHome />,
-	// },
+	{
+		to: '/dashboard/admincomplaint',
+		text: 'Complaint or Suggestion',
+		icon: <AiOutlineHome />,
+	},
 ];
 
 const DashboardSidebar = () => {

@@ -29,6 +29,7 @@ import Home from './Pages/Home/Home/Home';
 import Register from './Pages/HomePage/Home/Register.js';
 import ConsumerSeatStatus from './Pages/Dashboard/ConsumerDashboard/ConsumerSeatStatus/ConsumerSeatStatus';
 import Complaint from './Pages/Dashboard/ConsumerDashboard/Complaint/Complaint';
+import AdminComplaint from './Pages/Dashboard/AdminDashboard/Complaint/Complaint';
 import IAmIn from './Pages/Dashboard/ConsumerDashboard/IAmIn/IAmIn';
 import Reached from './Pages/Dashboard/ConsumerDashboard/Reached/Reached';
 // import ConsumerDashboardHome from './Pages/Dashboard/ConsumerDashboard/ConsumerDashboardHome/ConsumerDashboardHome';
@@ -61,6 +62,7 @@ function App() {
 					<Route path='iAmIn' element={<IAmIn />} />
 					<Route path='reached' element={<Reached />} />
 					<Route path='complaint' element={<Complaint />} />
+					<Route path='admincomplaint' element={<AdminComplaint />} />
 
 					<Route
 						path='admindashboard'
