@@ -81,10 +81,15 @@ const consumerLinksD = [
 
 const adminLinks = [
 	{
-		to: '/dashboard/admindashboard',
-		text: 'Dashboard',
+		to: '/dashboard/admincomplaint',
+		text: 'Complaint or Suggestion',
 		icon: <AiOutlineHome />,
 	},
+	// {
+	// 	to: '/dashboard/admindashboard',
+	// 	text: 'Dashboard',
+	// 	icon: <AiOutlineHome />,
+	// },
 	{
 		to: '/dashboard/inventory',
 		text: 'Bus Inventory',
@@ -105,11 +110,6 @@ const adminLinks = [
 	// 	text: 'Allocate route',
 	// 	icon: <AiOutlineHome />,
 	// },
-	{
-		to: '/dashboard/admincomplaint',
-		text: 'Complaint or Suggestion',
-		icon: <AiOutlineHome />,
-	},
 ];
 
 const DashboardSidebar = () => {

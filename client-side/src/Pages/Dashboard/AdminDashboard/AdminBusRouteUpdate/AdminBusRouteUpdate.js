@@ -14,12 +14,33 @@ const AdminBusRouteUpdate = () => {
 			.get(`/routeStart/get/${id}`)
 			.then((res) => {
 				setRoute(res.data.route);
+				reset(res.data.route);
 				console.log(res.data.route);
 			})
 			.catch((err) => {
 				console.log(err);
 			});
 	}, []);
+
+	const onSubmit = async (data) => {
+		/* 	console.log(data); */
+		const { routeNo, startTime } = data;
+		console.log(data);
+		const sendData = {
+			routeNo,
+			startLocation: { startTime },
+		};
+
+		try {
+			const res = await axios.post(`/routeStart/update/${id}`, sendData);
+			setRoute(res.data.route);
+			navigate('/dashboard/routes');
+		} catch (error) {
+			console.log(error);
+		}
+
+		reset();
+	};
 
 	const inputs = [
 		{
@@ -28,24 +49,7 @@ const AdminBusRouteUpdate = () => {
 			inputData: 'routeNo',
 			value: route?.routeNo,
 		},
-		// {
-		// 	inputType: 'text',
-		// 	inputTitle: 'label',
-		// 	inputData: 'label',
-		// 	value: route?.startLocation.label,
-		// },
-		// {
-		// 	inputType: 'text',
-		// 	inputTitle: 'Latitude ',
-		// 	inputData: 'latitude',
-		// 	value: route?.startLocation.latitude,
-		// },
-		// {
-		// 	inputType: 'text',
-		// 	inputTitle: 'Longitude',
-		// 	inputData: 'longitude',
-		// 	value: route?.startLocation.longitude,
-		// },
+
 		{
 			inputType: 'text',
 			inputTitle: 'Start Time',
@@ -53,23 +57,7 @@ const AdminBusRouteUpdate = () => {
 			value: route?.startLocation.startTime,
 		},
 	];
-	const onSubmit = async (data) => {
-		/* 	console.log(data); */
-		const { routeNo, startTime } = data;
-		console.log(data);
 
-		try {
-			const res = await axios.post('/routeStart/create', {
-				routeNo,
-				startLocation: { startTime },
-			});
-			navigate('/dashboard/routes');
-		} catch (error) {
-			console.log(error);
-		}
-
-		reset();
-	};
 	return (
 		<section className='justify-center mt-20'>
 			{/* input forms */}

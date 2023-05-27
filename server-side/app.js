@@ -27,6 +27,7 @@ const timeSlotRouter = require('./routes/timeSlotRoutes');
 const iAmInRouter = require('./routes/iAmInRoute');
 const busRoutineRouter = require('./routes/busRoutineRoutes');
 const complaintRouter = require('./routes/complaintRoutes');
+const dashboardRouter = require('./routes/dashboardRoutes');
 // const estimateRouter = require('./routes/estimateNumberOfPassengerRoute');
 
 app.use(morgan('tiny'));
@@ -53,6 +54,7 @@ app.use('/api/v1/timeSlots', timeSlotRouter);
 app.use('/api/v1/iAmIn', iAmInRouter);
 app.use('/api/v1/busRoutine', busRoutineRouter);
 app.use('/api/v1/complaint', complaintRouter);
+app.use('/api/v1/dashboard', dashboardRouter);
 // app.use('/api/v1/estimate', estimateRouter);
 
 // middleware use

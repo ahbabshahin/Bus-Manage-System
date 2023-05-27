@@ -20,17 +20,9 @@ const getSingleRoute = async (req, res) => {
 };
 
 const updateRoute = async (req, res) => {
-	const {
-		body: {
-			routeNo,
-			startTime,
-			startLocation: { label },
-		},
-
-		params: { id: routeId },
-	} = req;
-
-	const routeStart = await RouteStart.findByIdAndUpdate(routeId, req.body, {
+	const { routeId } = req.params;
+	console.log(routeId, 'query');
+	const routeStart = await RouteStart.findOneAndUpdate(routeId, req.body, {
 		new: true,
 		runValidators: true,
 	});

@@ -14,7 +14,7 @@ router.route('/get').get(getRouteStoppages);
 router.route('/create').post(createRouteStoppages);
 
 router.route('/get/:id').get(getSingleStoppages);
-router.route('/:id').patch(updateRouteStoppages).delete(deleteRouteStoppages);
+router.route('/:id').post(updateRouteStoppages).delete(deleteRouteStoppages);
 router.route('/deleteAllStoppages').post(deleteAllStoppages);
 
 module.exports = router;

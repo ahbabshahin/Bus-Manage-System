@@ -7,21 +7,13 @@ import userLogin from '../../../Images/user-login.png';
 
 const initialInputs = [
 	{
-		inputType: 'Name',
+		title: 'Name',
+		inputType: 'text',
 		property: 'name',
 	},
-	{
-		inputType: 'Email',
-		property: 'email',
-	},
-	{
-		inputType: 'password',
-		property: 'password',
-	},
-	{
-		inputType: 'contact Number',
-		property: 'contacts',
-	},
+	{ title: 'email', inputType: 'email', property: 'email' },
+	{ title: 'password', inputType: 'password', property: 'password' },
+	{ title: 'contacts', inputType: 'text', property: 'contacts' },
 ];
 
 const AdminRegister = () => {
@@ -66,22 +58,24 @@ const AdminRegister = () => {
 					</p>
 					{/* input forms */}
 					<form onSubmit={handleSubmit(onSubmit)}>
-						{finInputList.map(({ inputType }, index) => (
-							<div key={index} className=' py-2'>
-								<input
-									className='w-1/2 border py-3 pl-3 rounded-lg focus:outline-none focus:ring-1 focus:border-blue-500'
-									type={inputType}
-									name={inputType}
-									placeholder={inputType}
-									{...register(`${inputType}`, {
-										required: true,
-									})}
-								/>
-								{/* 	<small className='text-red-500 block mt-2 text-sm'>
+						{finInputList.map(
+							({ inputType, title, property }, index) => (
+								<div key={index} className=' py-2'>
+									<input
+										className='w-1/2 border py-3 pl-3 rounded-lg focus:outline-none focus:ring-1 focus:border-blue-500'
+										type={inputType}
+										name={property}
+										placeholder={title}
+										{...register(`${property}`, {
+											required: true,
+										})}
+									/>
+									{/* 	<small className='text-red-500 block mt-2 text-sm'>
 									{error}
 								</small> */}
-							</div>
-						))}
+								</div>
+							)
+						)}
 
 						<div className='py-2 '>
 							<input

@@ -16,13 +16,14 @@ const getAllComplaint = async (req, res) => {
 
 const deleteComplaint = async (req, res) => {
 	const {
-		params: { id: busId },
+		params: { id: complaintId },
 	} = req;
 
-	const cC = await Complaint.findByIdAndRemove({ _id: busId });
+	const cC = await Complaint.findByIdAndRemove({ _id: complaintId });
 
+	console.log(cC, req.params);
 	if (!cC) {
-		throw new NotFoundError(`No complaint found with id ${id}`);
+		throw new NotFoundError(`No complaint found with id ${complaintId}`);
 	}
 	res.status(StatusCodes.OK).send({ msg: 'successfully deleted' });
 };

@@ -8,12 +8,15 @@ const AdminBusInventoryUpdate = () => {
 	const { busId: id } = useParams();
 	const navigate = useNavigate();
 	const isActiveRef = useRef(false);
+	const { register, handleSubmit, reset } = useForm();
 
 	useEffect(() => {
 		axios
 			.get(`/bus/get/${id}`)
 			.then((res) => {
 				setBus(res.data.bus);
+				reset(res.data.bus);
+				isActiveRef.current.checked = res.data.bus.isActive;
 				console.log(res.data.bus);
 			})
 			.catch((err) => {
@@ -21,19 +24,25 @@ const AdminBusInventoryUpdate = () => {
 			});
 	}, []);
 
-	const { register, handleSubmit, reset } = useForm();
 	const onSubmit = async (data) => {
 		// console.log(data);
 		const { routeNo, busNo, capacity, name, contactNumber } = data;
 
+		const sendData = {
+			routeNo,
+			busNo,
+			capacity,
+			driverInfo: {
+				name,
+				contactNumber,
+			},
+			isActive: isActiveRef.current.checked,
+		};
+
+		console.log(sendData, 'senddata');
+
 		try {
-			const res = await axios.post('/bus/:id', {
-				routeNo,
-				busNo,
-				capacity,
-				driverInfo: { name, contactNumber },
-				isActive: isActiveRef.current.checked,
-			});
+			const res = await axios.put(`/bus/${id}`, sendData);
 			setBus(res.data.bus);
 			// console.log(res.data.bus);
 			navigate('/dashboard/inventory');
@@ -61,7 +70,7 @@ const AdminBusInventoryUpdate = () => {
 		},
 		{
 			id: 3,
-			inputType: 'text',
+			inputType: 'number',
 			inputTitle: 'Capacity',
 			inputData: 'capacity',
 			value: bus?.capacity,
@@ -76,7 +85,7 @@ const AdminBusInventoryUpdate = () => {
 		},
 		{
 			id: 5,
-			inputType: 'text',
+			inputType: 'number',
 			inputTitle: 'Driver Contact Number',
 			inputData: 'contactNumber',
 			value: bus?.driverInfo.contactNumber,
@@ -131,7 +140,7 @@ const AdminBusInventoryUpdate = () => {
 					)}
 					<div>
 						<input
-							defaultValue={bus?.isActive}
+							ref={isActiveRef}
 							type='checkbox'
 							className='p-5 inline-block'
 						/>

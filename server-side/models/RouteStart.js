@@ -4,26 +4,9 @@ const RouteStartSchema = new mongoose.Schema(
 	{
 		routeNo: {
 			type: String,
-			enum: ['Chottor', 'Kazir Bazar', 'Temuki'],
-			default: 'Chottor',
 		},
 
 		startLocation: {
-			label: {
-				type: String,
-				required: [true, 'Please provide the starting location'],
-			},
-
-			// latitude:{
-			//     type: String,
-			//     required: [true, 'Please provide the latitude'],
-			// },
-
-			// longtitude:{
-			//     type: String,
-			//     required: [true, 'Please provide the longtitude'],
-			// },
-
 			startTime: {
 				type: String,
 				required: [true, 'Please provide the starting time'],

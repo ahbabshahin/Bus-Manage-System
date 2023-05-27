@@ -14,6 +14,7 @@ const AdminBusStoppageUpdate = () => {
 			.get(`/stoppage/get/${id}`)
 			.then((res) => {
 				setStoppage(res.data.stoppages);
+				reset(res.data.stoppages);
 			})
 			.catch((err) => {
 				console.log(err);
@@ -36,8 +37,14 @@ const AdminBusStoppageUpdate = () => {
 	];
 
 	const onSubmit = async (data) => {
+		const { routeNo, label } = data;
+		const sendData = {
+			routeNo,
+			label,
+		};
 		try {
-			const res = await axios.post('/stoppage/update/:id', data);
+			const res = await axios.post(`/stoppage/${id}`, sendData);
+			setStoppage(res.data.stoppages);
 			navigate('/dashboard/stoppages');
 		} catch (error) {
 			console.log(error);

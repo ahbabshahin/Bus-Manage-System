@@ -9,6 +9,9 @@ const Complaint = () => {
 	const { busId: id } = useParams();
 	const navigate = useNavigate();
 	useEffect(() => {
+		getComplaints();
+	}, []);
+	const getComplaints = () => {
 		axios
 			.get('/complaint/get')
 			.then((res) => {
@@ -18,16 +21,7 @@ const Complaint = () => {
 			.catch((err) => {
 				console.log(err);
 			});
-
-		axios
-			.get(`/complaint/get/${id}`)
-			.then((res) => {
-				setBusList(res.data.gC);
-			})
-			.catch((err) => {
-				console.log(err);
-			});
-	}, [id]);
+	};
 
 	// useEffect(() => {
 	// 	axios
@@ -40,11 +34,11 @@ const Complaint = () => {
 	// 		});
 	// },[id]);
 
-	const handleClick = async () => {
+	const handleClick = async (complainId) => {
 		try {
-			const res = await axios.delete('/complaint/delete/:id');
+			const res = await axios.delete(`/complaint/delete/${complainId}`);
 			// setBusList(res.data.cC);
-			navigate(`/dashboard/admincomplaint`);
+			getComplaints();
 		} catch (error) {
 			console.log(error);
 		}
@@ -86,7 +80,7 @@ const Complaint = () => {
 
 								<div>
 									<button
-										onClick={handleClick}
+										onClick={() => handleClick(_id)}
 										className='block border bg-secondary py-2 px-3 rounded-lg hover:bg-dark hover:text-white'
 									>
 										Delete

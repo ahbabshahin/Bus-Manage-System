@@ -13,15 +13,13 @@ const useAuthentication = () => {
 			const response = await axios.post('auth/register', user);
 			setUser(response.data.user);
 			// console.log(response.data.user);
-			navigate('/dashboard');
+			navigate('/dashboard/complaint');
 		} catch (error) {
 			console.log(error);
 		}
 	};
 
 	const handleAdminRegister = async (user, navigate) => {
-		console.log(user);
-
 		try {
 			const response = await axios.post('auth/register', user);
 			setUser(response.data.user);
@@ -29,6 +27,9 @@ const useAuthentication = () => {
 			navigate('/dashboard');
 		} catch (error) {
 			console.log(error);
+			window.alert(
+				error.response?.data?.msg || error?.msg || error?.message
+			);
 		}
 	};
 
@@ -52,7 +53,7 @@ const useAuthentication = () => {
 			const response = await axios.post('auth/admin-login', data);
 			setUser(response.data.user);
 			// console.log(response.data.user);
-			navigate('/dashboard/admindashboard');
+			navigate('/dashboard/admincomplaint');
 		} catch (error) {
 			console.log(error.response.data);
 		}

@@ -6,7 +6,7 @@ const { attachCookiesToResponse, createTokenUser } = require('../utils');
 // const { rawListeners } = require('../models/User');
 
 const register = async (req, res) => {
-	const { email, name, password, contacts } = req.body;
+	const { email } = req.body;
 
 	const emailAlreadyExists = await User.findOne({ email });
 

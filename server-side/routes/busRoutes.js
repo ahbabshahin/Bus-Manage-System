@@ -13,7 +13,7 @@ const {
 router.get('/get', getAllBuses);
 router.post('/create', createBusInfo);
 router.route('/get/:id').get(getSingleBus);
-router.route('/:id').post(updateBusInfo);
+router.route('/:id').put(updateBusInfo);
 router.route('/delete/:id').delete(deleteBus);
 router.route('/deleteAllBuses/').post(deleteAllBuses);
 

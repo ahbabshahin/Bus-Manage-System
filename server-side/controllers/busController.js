@@ -1,6 +1,7 @@
 const Bus = require('../models/BusInventory');
 const { StatusCodes } = require('http-status-codes');
 const { NotFoundError } = require('../errors');
+const mongoose = require('mongoose');
 
 const getAllBuses = async (req, res) => {
 	const bus = await Bus.find({});
@@ -21,13 +22,9 @@ const getSingleBus = async (req, res) => {
 };
 
 const updateBusInfo = async (req, res) => {
-	const {
-		params: { id: busId },
-	} = req;
-
-	console.log(busId, req.body);
-
-	const bus = await Bus.findByIdAndUpdate(busId, req.body, {
+	const { id } = req.params;
+	console.log(id, 'query');
+	const bus = await Bus.findOneAndUpdate(id, req.body, {
 		new: true,
 		runValidators: true,
 	});
