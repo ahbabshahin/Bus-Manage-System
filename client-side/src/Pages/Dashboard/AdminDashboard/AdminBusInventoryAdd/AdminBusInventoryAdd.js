@@ -27,7 +27,7 @@ const inputs = [
 		inputData: 'name',
 	},
 	{
-		inputType: 'number',
+		inputType: 'text',
 		inputTitle: 'Driver Contact Number',
 		inputData: 'contactNumber',
 	},

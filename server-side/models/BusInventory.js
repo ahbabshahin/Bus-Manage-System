@@ -22,7 +22,7 @@ const InvestorySchema = new mongoose.Schema({
 			required: [true, 'must provide full name'],
 		},
 		contactNumber: {
-			type: Number,
+			type: String,
 			required: true,
 		},
 	},
