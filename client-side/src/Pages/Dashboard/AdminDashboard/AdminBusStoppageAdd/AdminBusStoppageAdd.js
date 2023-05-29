@@ -11,19 +11,9 @@ const inputs = [
 	},
 	{
 		inputType: 'text',
-		inputTitle: 'label',
+		inputTitle: 'Stoppages',
 		inputData: 'label',
 	},
-	// {
-	// 	inputType: 'text',
-	// 	inputTitle: 'Latitude',
-	// 	inputData: 'latitude',
-	// },
-	// {
-	// 	inputType: 'text',
-	// 	inputTitle: 'Longitude',
-	// 	inputData: 'longitude',
-	// },
 ];
 
 const AdminBusStoppageAdd = () => {

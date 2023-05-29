@@ -85,7 +85,7 @@ const AdminBusInventoryUpdate = () => {
 		},
 		{
 			id: 5,
-			inputType: 'number',
+			inputType: 'text',
 			inputTitle: 'Driver Contact Number',
 			inputData: 'contactNumber',
 			value: bus?.driverInfo.contactNumber,

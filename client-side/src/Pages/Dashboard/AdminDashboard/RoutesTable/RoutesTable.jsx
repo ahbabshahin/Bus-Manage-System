@@ -39,7 +39,7 @@ const RoutesTable = () => {
 				<button
 					className='btn'
 					onClick={() =>
-						navigate(`/dashboard/stoppageUpdate/${row._id}`)
+						navigate(`/dashboard/routeUpdate/${row._id}`)
 					}
 				>
 					Edit

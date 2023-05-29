@@ -15,7 +15,7 @@ router.route('/create').post(createTimeSlot);
 router
 	.route('/:id')
 	.get(getSingleTimeSlot)
-	.patch(updateTimeSlot)
+	.put(updateTimeSlot)
 	.delete(deleteTimeSlot);
 
 router.route('/deleteAllTimeSlots').post(deleteAllTimeSlots);

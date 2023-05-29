@@ -11,11 +11,11 @@ const AdminBusRouteUpdate = () => {
 
 	useEffect(() => {
 		axios
-			.get(`/routeStart/get/${id}`)
+			.get(`/timeSlots/${id}`)
 			.then((res) => {
-				setRoute(res.data.route);
-				reset(res.data.route);
-				console.log(res.data.route);
+				setRoute(res.data.timeSlot);
+				reset(res.data.timeSlot);
+				console.log(res.data.timeSlot);
 			})
 			.catch((err) => {
 				console.log(err);
@@ -24,16 +24,17 @@ const AdminBusRouteUpdate = () => {
 
 	const onSubmit = async (data) => {
 		/* 	console.log(data); */
-		const { routeNo, startTime } = data;
+		const { routeNo, busNo, timeSlot } = data;
 		console.log(data);
 		const sendData = {
 			routeNo,
-			startTime,
+			busNo,
+			timeSlot,
 		};
 
 		try {
-			const res = await axios.put(`/routeStart/update/${id}`, sendData);
-			setRoute(res.data.route);
+			const res = await axios.put(`/timeSlots/${id}`, sendData);
+			setRoute(res.data.timeSlot);
 			navigate('/dashboard/routes');
 		} catch (error) {
 			console.log(error);
@@ -45,16 +46,22 @@ const AdminBusRouteUpdate = () => {
 	const inputs = [
 		{
 			inputType: 'text',
-			inputTitle: 'Route Number',
+			inputTitle: 'Route',
 			inputData: 'routeNo',
 			value: route?.routeNo,
 		},
-
 		{
 			inputType: 'text',
+			inputTitle: 'BusNo',
+			inputData: 'busNo',
+			value: route?.busNo,
+		},
+
+		{
+			inputType: 'time',
 			inputTitle: 'Start Time',
-			inputData: 'startTime',
-			value: route?.startLocation.startTime,
+			inputData: 'timeSlot',
+			value: route?.timeSlot,
 		},
 	];
 
@@ -70,7 +77,7 @@ const AdminBusRouteUpdate = () => {
 								Bus Routes
 							</h2>
 							<p className='text-sm text-gray-600'>
-								Updating bus Routes {id}
+								Updating bus Routes
 							</p>
 						</div>
 						<div className='py-2 '>

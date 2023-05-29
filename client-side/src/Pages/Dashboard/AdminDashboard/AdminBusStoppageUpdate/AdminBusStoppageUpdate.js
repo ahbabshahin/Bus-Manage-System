@@ -30,7 +30,7 @@ const AdminBusStoppageUpdate = () => {
 		},
 		{
 			inputType: 'text',
-			inputTitle: 'label',
+			inputTitle: 'Stoppages',
 			inputData: 'label',
 			value: stoppage?.label,
 		},
