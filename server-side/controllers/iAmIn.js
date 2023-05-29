@@ -11,41 +11,80 @@ const iAmIn = async (req, res) => {
 	const studentId = req.body.studentId;
 	const role = req.body.role;
 
-	const seat = await Bus.find(
-		{ routeNo: routeNo, busNo: busNo },
+	const bus = await Bus.findOne(
+		{
+			routeNo: routeNo,
+			busNo: busNo,
+			isActive: true,
+		},
 		{ capacity: 1 }
 	);
 
-	let es = seat.capacity;
+	let es = bus.capacity;
+	// console.log(es);
+	const amIn = await EmptySeat.findOne(
+		{ routeNo: routeNo, busNo: busNo },
+		{ _id: 1 }
+	);
 
-	const check = await EmptySeat.find({ routeNo: routeNo, busNo: busNo });
-	let amIn;
-	if (!check) {
-		if (role !== 'driver') {
-			amIn = EmptySeat.create({
+	// console.log(amIn);
+	if (role !== 'driver') {
+		if (bus && !amIn) {
+			// console.log('if');
+			const eS = await EmptySeat.create({
 				routeNo: routeNo,
 				busNo: busNo,
 				emptySeat: es - 1,
 			});
-			console.log(amIn);
-			// res.status(StatusCodes.OK).json({ amIn });
+			res.status(StatusCodes.OK).json({ eS });
 		} else {
-			amIn = EmptySeat.create({
-				routeNo: routeNo,
-				busNo: busNo,
-				emptySeat: es,
-			});
-			console.log(amIn);
-			// res.status(StatusCodes.OK).json({ amIn });
+			// console.log('else');
+			const amIn = await EmptySeat.findOne(
+				{ routeNo: routeNo, busNo: busNo },
+				{ _id: 1 }
+			);
+			console.log(amIn._id);
+			const seat = await EmptySeat.findOne(
+				{
+					_id: amIn._id,
+				},
+				{ emptySeat: 1 }
+			);
+			let cnt = seat.emptySeat;
+
+			const eS = await EmptySeat.findOneAndUpdate(
+				{ _id: amIn._id },
+				{ emptySeat: cnt - 1 }
+			);
+
+			res.status(StatusCodes.OK).json({ eS });
 		}
+	} else {
+		const amIn = await EmptySeat.findOne(
+			{ routeNo: routeNo, busNo: busNo },
+			{ _id: 1 }
+		);
+		const dlt = await EmptySeat.findByIdAndUpdate(
+			{ _id: amIn._id },
+			{
+				emptySeat: es,
+			}
+		);
+
+		res.status(StatusCodes.OK).send('Reached');
 	}
-	res.status(StatusCodes.OK).json({ amIn });
 
-	// else{
+	// console.log(flag);
 
-	// }
+	// res.status(StatusCodes.OK).send('hey');
 };
+
+const getAllEntries = async (req, res) => {
+	const emptySeat = await EmptySeat.find({});
+	res.status(StatusCodes.OK).json({ emptySeat });
+};
+
 module.exports = {
 	iAmIn,
-	// getAllEntries,
+	getAllEntries,
 };

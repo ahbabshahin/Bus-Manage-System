@@ -2,6 +2,9 @@ import React from 'react';
 import SectionTitle from '../shared/SectionTitle/SectionTitle';
 import metroBus from '../../Images/metroBus.jpeg';
 import seatStatus from '../../Images/seatStatus.jpg';
+import busSeat from '../../Images/busSeat.jpg';
+import routes from '../../Images/routes.png';
+import stoppages from '../../Images/stoppages.jpg';
 
 const CategoryCarousel = () => {
 	return (
@@ -31,7 +34,7 @@ const CategoryCarousel = () => {
 					<div className='relative '>
 						<div>
 							<img
-								src={seatStatus}
+								src={busSeat}
 								alt='category'
 								className='lg:h-80 md:h-48 w-full object-cover object-center rounded-2xl'
 							/>
@@ -49,7 +52,7 @@ const CategoryCarousel = () => {
 					<div className='relative '>
 						<div>
 							<img
-								src='https://gecexchanges.com/wp-content/uploads/teach-english-in-thailand-banner.jpg'
+								src={stoppages}
 								alt='category'
 								className='lg:h-80 md:h-48 w-full object-cover object-center rounded-2xl'
 							/>
@@ -64,7 +67,7 @@ const CategoryCarousel = () => {
 					<div className='relative '>
 						<div>
 							<img
-								src='https://cms.accuweather.com/wp-content/uploads/2018/06/surf-4.jpg'
+								src={routes}
 								alt='category'
 								className='lg:h-80 md:h-48 w-full object-cover object-center rounded-2xl'
 							/>

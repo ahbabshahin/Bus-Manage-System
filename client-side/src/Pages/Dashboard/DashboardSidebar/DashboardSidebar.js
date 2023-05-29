@@ -17,11 +17,11 @@ const consumerLinksSt = [
 		text: 'Complaint',
 		// icon: <AiOutlineHome />,
 	},
-	{
-		to: '/dashboard/profile',
-		text: 'Profile',
-		icon: <GrUserSettings />,
-	},
+	// {
+	// 	to: '/dashboard/profile',
+	// 	text: 'Profile',
+	// 	icon: <GrUserSettings />,
+	// },
 	{
 		to: '/dashboard/iAmIn',
 		text: 'Update Seat Status',
@@ -39,11 +39,11 @@ const consumerLinksT = [
 		text: 'Complaint',
 		// icon: <AiOutlineHome />,
 	},
-	{
-		to: '/dashboard/profile',
-		text: 'Profile',
-		icon: <GrUserSettings />,
-	},
+	// {
+	// 	to: '/dashboard/profile',
+	// 	text: 'Profile',
+	// 	icon: <GrUserSettings />,
+	// },
 	// {
 	// 	to: '/dashboard/iAmIn',
 	// 	text: 'I Am In the Bus',

@@ -52,7 +52,7 @@ app.use('/api/v1/bus', busRouter);
 app.use('/api/v1/timeSlots', timeSlotRouter);
 // app.use('/api/v1/checkEmptySeat', checkEmptySeatRouter);
 app.use('/api/v1/iAmIn', iAmInRouter);
-app.use('/api/v1/busRoutine', busRoutineRouter);
+// app.use('/api/v1/busRoutine', busRoutineRouter);
 app.use('/api/v1/complaint', complaintRouter);
 app.use('/api/v1/dashboard', dashboardRouter);
 // app.use('/api/v1/estimate', estimateRouter);

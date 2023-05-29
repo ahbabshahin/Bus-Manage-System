@@ -16,21 +16,11 @@ const inputs = [
 		inputTitle: 'Route',
 		inputData: 'routeNo',
 	},
-	// {
-	// 	inputType: 'text',
-	// 	inputTitle: 'Student Id',
-	// 	inputData: 'studentId',
-	// },
 	{
 		inputType: 'text',
 		inputTitle: 'Role',
 		inputData: 'role',
 	},
-	// {
-	// 	inputType: 'number',
-	// 	inputTitle: 'Driver Contact Number',
-	// 	inputData: 'contactNumber',
-	// },
 ];
 
 const Reached = () => {

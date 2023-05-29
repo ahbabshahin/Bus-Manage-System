@@ -26,11 +26,6 @@ const inputs = [
 		inputTitle: 'Role',
 		inputData: 'role',
 	},
-	// {
-	// 	inputType: 'number',
-	// 	inputTitle: 'Driver Contact Number',
-	// 	inputData: 'contactNumber',
-	// },
 ];
 
 const IAmIn = () => {
@@ -47,7 +42,7 @@ const IAmIn = () => {
 				studentId,
 				role,
 			});
-			navigate('/dashboard/consumerSeatStatus');
+			navigate('/consumerSeatStatus');
 		} catch (error) {
 			console.log(error);
 		}
@@ -62,11 +57,8 @@ const IAmIn = () => {
 					<div className='flex justify-between '>
 						<div>
 							<h2 className='text-2xl font-semibold'>
-								I Am In the Bus
+								Update Seat Status
 							</h2>
-							{/* <p className='text-sm text-gray-600'>
-								adding new bus to inventory
-							</p> */}
 						</div>
 						<div className='py-2 '>
 							<input
@@ -99,16 +91,7 @@ const IAmIn = () => {
 							</div>
 						)
 					)}
-					<div>
-						{/* <input
-							type='checkbox'
-							ref={isActiveRef}
-							className='p-5 inline-block'
-						/>
-						<p className='inline-block ml-3 text-base'>
-							Bus is Active
-						</p> */}
-					</div>
+					<div></div>
 				</form>
 			</div>
 		</section>

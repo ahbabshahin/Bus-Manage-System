@@ -12,19 +12,6 @@ const CheckEmptySeatSchema = new mongoose.Schema(
 			type: String,
 			required: [true, 'must be given'],
 		},
-
-		studentId: {
-			type: String,
-			unique: true,
-			require: true,
-		},
-
-		role: {
-			type: String,
-			enum: ['student', 'teacher', 'admin', 'staff', 'driver'],
-			default: 'student',
-		},
-
 		// seat: {
 		// 	type: Number,
 		// },

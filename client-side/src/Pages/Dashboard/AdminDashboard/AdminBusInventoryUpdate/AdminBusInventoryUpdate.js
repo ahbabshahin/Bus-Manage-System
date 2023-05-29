@@ -44,8 +44,8 @@ const AdminBusInventoryUpdate = () => {
 		try {
 			const res = await axios.put(`/bus/${id}`, sendData);
 			setBus(res.data.bus);
-			// console.log(res.data.bus);
-			navigate('/dashboard/inventory');
+			console.log(res.data.bus);
+			// navigate('/dashboard/inventory');
 		} catch (error) {
 			console.log(error);
 		}
@@ -64,7 +64,7 @@ const AdminBusInventoryUpdate = () => {
 		{
 			id: 2,
 			inputType: 'text',
-			inputTitle: 'Bus No',
+			inputTitle: 'BusNo',
 			inputData: 'busNo',
 			value: bus?.busNo,
 		},
