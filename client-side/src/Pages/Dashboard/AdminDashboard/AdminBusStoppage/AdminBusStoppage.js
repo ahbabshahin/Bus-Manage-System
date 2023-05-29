@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { FaBus } from 'react-icons/fa';
 import { MdOutlineLibraryAdd } from 'react-icons/md';
 import { useNavigate } from 'react-router-dom';
+import StoppagesTable from '../StoppagesTable/StoppagesTable';
 
 const AdminBusStoppage = () => {
 	const [stoppageList, setStoppageList] = useState();
@@ -31,8 +32,9 @@ const AdminBusStoppage = () => {
 					Add New Stoppage
 				</h2>
 			</div>
+			<StoppagesTable />
 			{/* update Route Title */}
-			<article>
+			{/* <article>
 				{' '}
 				<div className='flex items-center text-xl font-semibold mb-10'>
 					<span>
@@ -40,7 +42,7 @@ const AdminBusStoppage = () => {
 					</span>
 					<h2 className=' text-dark '>List of Existing Stoppages</h2>
 				</div>
-				{/* Existing Bus Update list */}
+				{/* Existing Bus Update list 
 				<div className='grid grid-cols-3 gap-3'>
 					{stoppageList &&
 						stoppageList.map(({ _id, routeNo, label }) => (
@@ -72,7 +74,7 @@ const AdminBusStoppage = () => {
 							</div>
 						))}
 				</div>
-			</article>
+			</article> */}
 		</div>
 	);
 };

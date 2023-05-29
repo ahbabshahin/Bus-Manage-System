@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { FaBus } from 'react-icons/fa';
 import { MdOutlineLibraryAdd } from 'react-icons/md';
 import { useNavigate } from 'react-router-dom';
+import InventoryTable from '../InventoryTable/InventoryTable';
 
 const AdminBusInventory = () => {
 	const [busList, setBusList] = useState([]);
@@ -29,7 +30,8 @@ const AdminBusInventory = () => {
 					Add New Bus
 				</h2>
 			</div>
-			<article>
+			<InventoryTable />
+			{/* <article>
 				{' '}
 				<div className='flex items-center text-xl font-semibold mb-10'>
 					<span>
@@ -37,7 +39,7 @@ const AdminBusInventory = () => {
 					</span>
 					<h2 className=' text-dark '>List of Existing Bus</h2>
 				</div>
-				{/* Existing Bus Update list */}
+				{/* Existing Bus Update list *
 				<div>
 					{busList &&
 						busList.map(
@@ -57,7 +59,7 @@ const AdminBusInventory = () => {
 									<p>Route : {routeNo}</p>
 									<p>Capacity: {capacity}</p>
 									<p>Driver: {driverInfo.contactNumber}</p>
-									{/* should be dynamic */}
+									{/* should be dynamic *
 									<p className='font-medium'>
 										{isActive ? 'active' : 'inactive'}
 									</p>
@@ -77,7 +79,7 @@ const AdminBusInventory = () => {
 							)
 						)}
 				</div>
-			</article>
+			</article> */}
 		</section>
 	);
 };

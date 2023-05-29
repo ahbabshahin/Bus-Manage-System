@@ -28,11 +28,11 @@ const AdminBusRouteUpdate = () => {
 		console.log(data);
 		const sendData = {
 			routeNo,
-			startLocation: { startTime },
+			startTime,
 		};
 
 		try {
-			const res = await axios.post(`/routeStart/update/${id}`, sendData);
+			const res = await axios.put(`/routeStart/update/${id}`, sendData);
 			setRoute(res.data.route);
 			navigate('/dashboard/routes');
 		} catch (error) {

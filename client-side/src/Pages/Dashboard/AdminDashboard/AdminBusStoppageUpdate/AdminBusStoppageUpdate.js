@@ -43,7 +43,7 @@ const AdminBusStoppageUpdate = () => {
 			label,
 		};
 		try {
-			const res = await axios.post(`/stoppage/${id}`, sendData);
+			const res = await axios.put(`/stoppage/${id}`, sendData);
 			setStoppage(res.data.stoppages);
 			navigate('/dashboard/stoppages');
 		} catch (error) {

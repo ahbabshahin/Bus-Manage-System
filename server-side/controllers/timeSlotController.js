@@ -6,7 +6,7 @@ const getAllTimeSlots = async (req, res) => {
 	const timeSlots = await TimeSlot.find({});
 
 	res.status(StatusCodes.OK).json({
-		data: timeSlots,
+		timeSlots,
 		count: timeSlots.length,
 	});
 };

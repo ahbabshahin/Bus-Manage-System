@@ -76,9 +76,21 @@ const Header = () => {
 									Home
 								</Link>
 							)}
-							{user && (
+							{user && user.role === 'admin' && (
 								<Link
-									to='/dashboard'
+									to='/dashboard/admincomplaint'
+									className='
+            my-1
+            text-dark
+            md:mx-4 md:my-0
+          '
+								>
+									Dashboard
+								</Link>
+							)}
+							{user && user.role !== 'admin' && (
+								<Link
+									to='/dashboard/complaint'
 									className='
             my-1
             text-dark

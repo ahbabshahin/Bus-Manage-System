@@ -65,7 +65,7 @@ const AdminBusStoppageAdd = () => {
 						<div className='py-2 '>
 							<input
 								type='submit'
-								value={'Update'}
+								value={'Submit'}
 								className=' border py-3 px-4 rounded-lg focus:outline-none focus:ring-1 focus:border-purple-600 text-white bg-dark'
 							/>
 						</div>

@@ -24,7 +24,7 @@ const consumerLinksSt = [
 	},
 	{
 		to: '/dashboard/iAmIn',
-		text: 'I Am In the Bus',
+		text: 'Update Seat Status',
 		// icon: <AiSeatOutline />,
 	},
 	// {

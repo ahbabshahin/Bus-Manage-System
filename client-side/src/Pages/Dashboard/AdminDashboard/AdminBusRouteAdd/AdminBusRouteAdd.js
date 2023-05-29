@@ -10,25 +10,16 @@ const inputs = [
 		inputData: 'routeNo',
 		// inputEnum: ['Chottor', 'Kazir Bazar', 'Temuki'],
 	},
-	// {
-	// 	inputType: 'text',
-	// 	inputTitle: 'label',
-	// 	inputData: 'label',
-	// },
-	// {
-	// 	inputType: 'text',
-	// 	inputTitle: 'Latitude',
-	// 	inputData: 'latitude',
-	// },
-	// {
-	// 	inputType: 'text',
-	// 	inputTitle: 'Longitude', latitude, longitude
-	// 	inputData: 'longitude',
-	// },
 	{
 		inputType: 'text',
+		inputTitle: 'BusNo',
+		inputData: 'busNo',
+	},
+
+	{
+		inputType: 'time',
 		inputTitle: 'Start Time',
-		inputData: 'startTime',
+		inputData: 'timeSlot',
 	},
 ];
 
@@ -37,13 +28,14 @@ const AdminBusRouteAdd = () => {
 	const navigate = useNavigate();
 
 	const onSubmit = async (data) => {
-		const { routeNo, startTime } = data;
+		const { routeNo, busNo, timeSlot } = data;
 		console.log(data);
 
 		try {
-			const res = await axios.post('/routeStart/create', {
+			const res = await axios.post('/timeSlots/create', {
 				routeNo,
-				startLocation: { startTime },
+				busNo,
+				timeSlot,
 			});
 			navigate('/dashboard/routes');
 		} catch (error) {

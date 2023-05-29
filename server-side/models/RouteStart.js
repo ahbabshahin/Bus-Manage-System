@@ -6,11 +6,9 @@ const RouteStartSchema = new mongoose.Schema(
 			type: String,
 		},
 
-		startLocation: {
-			startTime: {
-				type: String,
-				required: [true, 'Please provide the starting time'],
-			},
+		startTime: {
+			type: String,
+			required: [true, 'Please provide the starting time'],
 		},
 	},
 
