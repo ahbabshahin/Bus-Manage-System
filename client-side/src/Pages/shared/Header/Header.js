@@ -41,6 +41,18 @@ const Header = () => {
 
 					<div className='items-center md:flex my-2'>
 						<div className='flex flex-col md:flex-row md:mx-6 '>
+							{
+								<Link
+									to='/'
+									className='
+            my-1
+            text-dark
+            md:mx-4 md:my-0
+          '
+								>
+									Home
+								</Link>
+							}
 							{!user && (
 								<Link
 									to='http://localhost:3000/register'
@@ -64,18 +76,7 @@ const Header = () => {
 							>
 								Places to stay
 							</Link> */}
-							{user && (
-								<Link
-									to='/'
-									className='
-            my-1
-            text-dark
-            md:mx-4 md:my-0
-          '
-								>
-									Home
-								</Link>
-							)}
+
 							{user && user.role === 'admin' && (
 								<Link
 									to='/dashboard/admincomplaint'

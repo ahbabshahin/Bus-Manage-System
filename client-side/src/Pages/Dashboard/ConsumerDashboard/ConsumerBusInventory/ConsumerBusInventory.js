@@ -1,11 +1,11 @@
 import React from 'react';
-import HeaderDashboard from '../../../shared/Header/HeaderDashboard';
+import Header from '../../../shared/Header/Header';
 import InventoryTable from '../InventoryTable/InventoryTable';
 
 const ConsumerBusInventory = () => {
 	return (
 		<div>
-			<HeaderDashboard />
+			<Header />
 			<InventoryTable />
 		</div>
 	);

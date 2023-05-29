@@ -34,6 +34,7 @@ import IAmIn from './Pages/Dashboard/ConsumerDashboard/IAmIn/IAmIn';
 import Reached from './Pages/Dashboard/ConsumerDashboard/Reached/Reached';
 import ConsumerStoppages from './Pages/Dashboard/ConsumerDashboard/ConsumerStoppages/ConsumerStoppages';
 import ConsumerRoutes from './Pages/Dashboard/ConsumerDashboard/ConsumerRoutes/ConsumerRoutes';
+import ConsumerBusRoutine from './Pages/Dashboard/ConsumerDashboard/ConsumerBusRoutine/ConsumerBusRoutine';
 // import ConsumerDashboardHome from './Pages/Dashboard/ConsumerDashboard/ConsumerDashboardHome/ConsumerDashboardHome';
 
 function App() {
@@ -62,6 +63,10 @@ function App() {
 				<Route
 					path='consumerStoppages'
 					element={<ConsumerStoppages />}
+				/>
+				<Route
+					path='consumerBusRoutine'
+					element={<ConsumerBusRoutine />}
 				/>
 				<Route path='consumerRoutes' element={<ConsumerRoutes />} />
 				<Route path='dashboard/*' element={<DashboardHome />}>

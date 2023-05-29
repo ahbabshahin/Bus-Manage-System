@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 
-import HeaderDashboard from '../../../shared/Header/HeaderDashboard';
+import Header from '../../../shared/Header/Header';
 import SeatStatusTable from '../SeatStatusTable/SeatStatusTable';
 
 const ConsumerSeatStatus = () => {
 	return (
 		<div>
-			<HeaderDashboard />
+			<Header />
 
 			<SeatStatusTable />
 		</div>

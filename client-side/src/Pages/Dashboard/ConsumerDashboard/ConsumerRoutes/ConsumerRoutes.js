@@ -1,11 +1,11 @@
 import React from 'react';
-import HeaderDashboard from '../../../shared/Header/HeaderDashboard';
+import Header from '../../../shared/Header/Header';
 import RoutesTable from '../RoutesTable/RoutesTable';
 
 const ConsumerRoutes = () => {
 	return (
 		<div>
-			<HeaderDashboard />
+			<Header />
 			<RoutesTable />
 		</div>
 	);
