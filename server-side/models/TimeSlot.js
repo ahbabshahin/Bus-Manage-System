@@ -4,8 +4,6 @@ const TimeSlotSchema = new mongoose.Schema(
 	{
 		routeNo: {
 			type: String,
-			enum: ['Chottor', 'Kazir Bazar', 'Temuki'],
-			default: 'Chottor',
 		},
 
 		busNo: {

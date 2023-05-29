@@ -3,8 +3,6 @@ const mongoose = require('mongoose');
 const InvestorySchema = new mongoose.Schema({
 	routeNo: {
 		type: String,
-		enum: ['Chottor', 'Kazir Bazar', 'Temuki'],
-		default: 'Chottor',
 		required: true,
 	},
 
